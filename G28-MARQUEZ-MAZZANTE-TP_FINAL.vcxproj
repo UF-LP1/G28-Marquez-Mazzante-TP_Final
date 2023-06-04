@@ -128,9 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cCentroRadioterapia.h" />
+    <ClInclude Include="cDosimetrista.h" />
+    <ClInclude Include="cOncologo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cCentroRadioterapia.cpp" />
+    <ClCompile Include="cDosimetrista.cpp" />
+    <ClCompile Include="cOncologo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

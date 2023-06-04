@@ -18,9 +18,21 @@
     <ClInclude Include="cCentroRadioterapia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cOncologo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cDosimetrista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cCentroRadioterapia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cOncologo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cDosimetrista.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
