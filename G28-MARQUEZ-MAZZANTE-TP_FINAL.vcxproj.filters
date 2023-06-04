@@ -27,6 +27,21 @@
     <ClInclude Include="cPaciente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cTumor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFicha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eTamanio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eUbicacion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eEstado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cCentroRadioterapia.cpp">
@@ -39,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cPaciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cTumor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFicha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
