@@ -130,11 +130,13 @@
     <ClInclude Include="cCentroRadioterapia.h" />
     <ClInclude Include="cDosimetrista.h" />
     <ClInclude Include="cOncologo.h" />
+    <ClInclude Include="cPaciente.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cCentroRadioterapia.cpp" />
     <ClCompile Include="cDosimetrista.cpp" />
     <ClCompile Include="cOncologo.cpp" />
+    <ClCompile Include="cPaciente.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
