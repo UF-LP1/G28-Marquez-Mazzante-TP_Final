@@ -13,6 +13,7 @@ private:
 	string tel_contacto;
 	time_t fecha_nacimiento;
 	float salud;
+	bool concurrir;
 
 public:
 	cPaciente(string nombre, string apellido, string DNI, string tel_contacto, time_t fecha_nacimiento, float salud);
@@ -22,7 +23,7 @@ public:
 	string get_tel_contacto();
 	float get_salud();
 	void set_salud(float s);
-
+	bool set_concurrir(bool c);
 
 };
 

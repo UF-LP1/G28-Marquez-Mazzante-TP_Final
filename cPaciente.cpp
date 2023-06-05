@@ -32,3 +32,9 @@ void cPaciente::set_salud(float s)
     this->salud = s;
     return;
 }
+
+bool cPaciente::set_concurrir(bool c)
+{
+    this->concurrir = c;
+    return c;
+}

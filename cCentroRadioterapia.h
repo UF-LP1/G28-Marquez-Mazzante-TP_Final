@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include "cPaciente.h"
 
 using namespace std;
 
@@ -11,6 +11,7 @@ public:
 
 	cCentroRadioterapia(string nombre_centro);
 	~cCentroRadioterapia();
+	bool contactar_paciente(cPaciente p);
 
 };
 

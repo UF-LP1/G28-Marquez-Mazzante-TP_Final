@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "cPaciente.h"
 
 using namespace std;
 
@@ -19,4 +20,4 @@ public:
 	void elegir_tipo_terapia(cPaciente p);
 
 
-}
+};
