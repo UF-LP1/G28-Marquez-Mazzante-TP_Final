@@ -1,4 +1,8 @@
 #include "cOncologo.h"
+#include "cBraquiterapia.h"
+#include "CRadHazExterno.h"
+#include "cRadSistemica.h"
+
 
 cOncologo::cOncologo(string nombre, string apellido, string DNI)
 	:nombre(nombre), apellido(apellido), DNI(DNI)
@@ -14,15 +18,27 @@ const string cOncologo::get_DNI()
 	return this->DNI;
 }
 
-unsigned int cOncologo::calcular_dosis_sesion(cPaciente p)
+unsigned int cOncologo::calcular_dosis_sesion(cPaciente *p)
 {
-	float dosisnecesaria = p.get_salud();  //IDEA podriamos pasarle tambien la ubicacion del tumor entonces asi sabemoms que radioterapia corresponde
-								 //y asi variamos las dosis entre la cantidad q dice la consigna, yo haria por ejemplo que si la salud esta entre
-								//0 y 0.3 (siendo 0 semi muerto) la dosis va a ser maxima, si esta entre 0.4 y 0.7, la dosis es media y si esta entre
-								//0.8 y 1, la dosis es minima.
+	vector <cTumor*> tumoraux=p->get_lista_tumores();
 
+	for (int i = 0; i < p->get_lista_tumores().size(); i++) {
+		
+		cTerapia* terapiaAux = tumoraux[i]->get_tratamiento();
 
-	//if(dosisnecesaria)
+		if (dynamic_cast<cBraquiterapia*>(terapiaAux) != nullptr) {
+			int num = 6 + rand() % (8 - 5);
+			terapiaAux[i].set_dosis_sesion(num);
+		}
+		if (dynamic_cast<cRadSistemica*>(terapiaAux) != nullptr) {
+			int num = 2 + rand() % (4 - 1);
+			terapiaAux[i].set_dosis_sesion(num);
+		}
+		if (dynamic_cast<CRadHazExterno*>(terapiaAux) != nullptr) {
+			int num = 1 + rand() % 2;
+			terapiaAux[i].set_dosis_sesion(num);
+		}
+	}
 	
 	return 0;
 }
