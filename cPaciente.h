@@ -25,8 +25,10 @@ public:
 	const string get_DNI();
 	string get_tel_contacto();
 	float get_salud();
+	vector<cTumor*> get_lista_tumores();
 	void set_salud(float s);
 	bool set_concurrir(bool c);
+
 
 };
 

@@ -27,6 +27,11 @@ float cPaciente::get_salud()
     return this->salud;
 }
 
+vector<cTumor*> cPaciente::get_lista_tumores()
+{
+    return this->lista_tumores;
+}
+
 void cPaciente::set_salud(float s)
 {
     this->salud = s;
