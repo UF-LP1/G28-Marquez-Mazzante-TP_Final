@@ -45,6 +45,15 @@
     <ClInclude Include="cTerapia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CRadHazExterno.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cRadSistemica.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cBraquiterapia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cCentroRadioterapia.cpp">
@@ -69,6 +78,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRadHazExterno.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cRadSistemica.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cBraquiterapia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

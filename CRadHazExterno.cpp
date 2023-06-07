@@ -1,0 +1,1 @@
+#include "CRadHazExterno.h"
