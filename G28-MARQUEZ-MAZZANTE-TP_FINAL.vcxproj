@@ -146,6 +146,7 @@
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cTerapia.cpp" />
     <ClCompile Include="cTumor.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

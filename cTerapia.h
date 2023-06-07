@@ -1,6 +1,7 @@
 #pragma once
 #include "eUbicacion.h"
 
+
 using namespace std;
 
 class cTerapia

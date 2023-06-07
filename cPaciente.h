@@ -1,6 +1,6 @@
 #pragma once
-#include <ctime>
-#include <string>
+#include "cTumor.h"
+#include "cFicha.h"
 
 using namespace std;
 

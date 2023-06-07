@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include "cPaciente.h"
 
 using namespace std;

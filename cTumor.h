@@ -1,6 +1,7 @@
 #pragma once
 #include "eTamanio.h"
 #include "eUbicacion.h"
+#include "cTerapia.h"
 
 using namespace std;
 
