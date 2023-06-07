@@ -1,10 +1,11 @@
 #include "cTumor.h"
 
-cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, unsigned int rad_acum)
+cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, unsigned int rad_acum, cTerapia*tratamiento)
 {
 	this->tamanio = tamanio;
 	this->ubicacion = ubicacion;
 	this->radiacion_acum = rad_acum;
+	this->tratamiento = tratamiento;
 }
 
 cTumor::~cTumor()
@@ -24,6 +25,11 @@ eUbicacion cTumor::get_ubicacion()
 unsigned int cTumor::get_radiacion_acum()
 {
 	return this->radiacion_acum;
+}
+
+cTerapia* cTumor::get_tratamiento()
+{
+	return this->tratamiento;
 }
 
 void cTumor::set_tamanio(eTamanio tamanio)

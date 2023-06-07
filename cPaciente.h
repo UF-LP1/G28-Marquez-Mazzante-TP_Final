@@ -1,6 +1,7 @@
 #pragma once
 #include "cTumor.h"
 #include "cFicha.h"
+#include <vector>
 
 using namespace std;
 
@@ -14,6 +15,8 @@ private:
 	time_t fecha_nacimiento;
 	float salud;
 	bool concurrir;
+	vector <cTumor*> lista_tumores;
+	cFicha* ficha_paciente;
 
 public:
 	cPaciente(string nombre, string apellido, string DNI, string tel_contacto, time_t fecha_nacimiento, float salud);
