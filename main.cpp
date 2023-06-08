@@ -37,6 +37,7 @@ ifstream leer_archivo(string nombrearchivo, vector<cPaciente*> listaPacientes) {
 	while (variablefile) {
 		cin >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tel_contactoAux >> coma
 			>> fecha_nacimientoAux >> coma >> saludAux >> coma >> concurrirAux;
+
 	}
 
 
