@@ -21,7 +21,6 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 	float saludAux;
 	string coma;
 
-	int i = 0;
 
 	variablefile >> coma;
 
@@ -31,7 +30,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 
 		cPaciente pacienteAux(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
 
-		listaPacientes[i] = &pacienteAux;
+		listaPacientes.push_back(&pacienteAux);
 	}
 
 	return variablefile;
