@@ -21,17 +21,17 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 	float saludAux;
 	string coma;
 
-
+	int i = 0;
 	variablefile >> coma;
 
 	while (variablefile) {
 		variablefile >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
 			>> fecha_nacimientoAux >> coma >> saludAux;
 
-		cPaciente pacienteAux(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
+		cPaciente *pacienteAux = new cPaciente(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
 
-		listaPacientes.push_back(&pacienteAux);
+		listaPacientes.push_back(pacienteAux);
 	}
-
+	int x = 0;
 	return variablefile;
 }
