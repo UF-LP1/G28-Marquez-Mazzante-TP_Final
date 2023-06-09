@@ -1,6 +1,6 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombre, string apellido, string DNI, string tel_contacto, time_t fecha_nacimiento, float salud)
+cPaciente::cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, time_t fecha_nacimiento, float salud)
     :nombre(nombre), apellido(apellido), DNI(DNI)
 {
     this->tel_contacto = tel_contacto;
@@ -38,8 +38,9 @@ void cPaciente::set_salud(float s)
     return;
 }
 
-bool cPaciente::set_concurrir(bool c)
+/*bool cPaciente::set_concurrir(bool c)
 {
     this->concurrir = c;
     return c;
 }
+*/

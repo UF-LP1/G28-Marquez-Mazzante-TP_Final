@@ -18,12 +18,12 @@ bool cCentroRadioterapia::contactar_paciente(cPaciente p)
 	respuesta = rand() % 2;
 
 	if (respuesta == 0) {
-		p.set_concurrir(contestar);
+		//p.set_concurrir(contestar);
 	}
 
 	else {
 		contestar = true;
-		p.set_concurrir(contestar);
+		//p.set_concurrir(contestar);
 	}
 
 	return contestar;

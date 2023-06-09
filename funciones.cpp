@@ -14,6 +14,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 	string nombreAux;
 	string apellidoAux;
 	string DNIAux;
+	string tipo_sangreAux;
 	string tel_contactoAux;
 	time_t fecha_nacimientoAux;
 	float saludAux;
@@ -23,13 +24,13 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 
 
 	while (variablefile) {
-		cin >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tel_contactoAux >> coma
+		cin >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
 			>> fecha_nacimientoAux >> coma >> saludAux;
 
-		cPaciente pacienteAux(nombreAux, apellidoAux, DNIAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
+		cPaciente pacienteAux(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
 
 		listaPacientes[i] = &pacienteAux;
 	}
 
-	return;
+	return variablefile;
 }

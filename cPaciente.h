@@ -11,6 +11,7 @@ private:
 	const string nombre;
 	const string apellido;
 	const string DNI;
+	const string tipo_sangre;
 	string tel_contacto;
 	time_t fecha_nacimiento;
 	float salud;
@@ -18,7 +19,7 @@ private:
 	cFicha* ficha_paciente;
 
 public:
-	cPaciente(string nombre, string apellido, string DNI, string tel_contacto, time_t fecha_nacimiento, float salud);
+	cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, time_t fecha_nacimiento, float salud);
 	~cPaciente();
 
 	const string get_DNI();
@@ -26,7 +27,7 @@ public:
 	float get_salud();
 	vector<cTumor*> get_lista_tumores();
 	void set_salud(float s);
-	bool set_concurrir(bool c);
+	//bool set_concurrir(bool c);
 
 
 };

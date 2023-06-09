@@ -1,17 +1,18 @@
-#include <iostream>
-#include <vector>
-#include "cCentroRadioterapia.h"
-#include <sstream>
-#include <fstream>
+
+#include "funciones.h"
 
 using namespace std;
 
 
-
 int main()
 {
-	vector<cPaciente*> listaPacientes;
+	string nombre_archivo = "archivopacientes.csv";
+	vector <cPaciente*> listaPacientes;
+	
+	ifstream variablefile;
+	variablefile = leer_archivo_pacientes(nombre_archivo, listaPacientes);
 
+	return 0;
 }
 
 
