@@ -10,7 +10,7 @@ int main()
 	vector <cPaciente*> listaPacientes;
 	
 	ifstream variablefile;
-	variablefile = leer_archivo_pacientes(nombre_archivo, listaPacientes);
+	variablefile = leer_archivo_pacientes(nombre_archivo, &listaPacientes);
 
 	return 0;
 }

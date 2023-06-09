@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPacientes) {
+ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaPacientes) {
 	ifstream variablefile;
 	variablefile.open(nombrearchivo, ios::in);
 	if (!(variablefile.is_open()))
@@ -30,8 +30,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 
 		cPaciente *pacienteAux = new cPaciente(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
 
-		listaPacientes.push_back(pacienteAux);
+		listaPacientes->push_back(pacienteAux);
 	}
-	int x = 0;
 	return variablefile;
 }

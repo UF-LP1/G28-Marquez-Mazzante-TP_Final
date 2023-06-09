@@ -6,4 +6,4 @@
 
 using namespace std;
 
-ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPacientes);
+ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaPacientes);
