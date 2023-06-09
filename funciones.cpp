@@ -24,7 +24,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaP
 	int i = 0;
 	variablefile >> coma;
 
-	while (variablefile) {
+	while (!variablefile.eof()) {
 		variablefile >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
 			>> fecha_nacimientoAux >> coma >> saludAux;
 
@@ -32,5 +32,6 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaP
 
 		listaPacientes->push_back(pacienteAux);
 	}
+	int x = 1;
 	return variablefile;
 }
