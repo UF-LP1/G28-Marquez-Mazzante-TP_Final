@@ -140,6 +140,7 @@
     <ClInclude Include="eEstado.h" />
     <ClInclude Include="eTamanio.h" />
     <ClInclude Include="eUbicacion.h" />
+    <ClInclude Include="funciones.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBraquiterapia.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="cRadSistemica.cpp" />
     <ClCompile Include="cTerapia.cpp" />
     <ClCompile Include="cTumor.cpp" />
+    <ClCompile Include="funciones.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
