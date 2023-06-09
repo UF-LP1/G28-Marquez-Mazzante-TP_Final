@@ -14,7 +14,6 @@ private:
 	string tel_contacto;
 	time_t fecha_nacimiento;
 	float salud;
-	bool concurrir;
 	vector <cTumor*> lista_tumores;
 	cFicha* ficha_paciente;
 
