@@ -1,4 +1,4 @@
-
+#pragma once
 #include "funciones.h"
 
 using namespace std;

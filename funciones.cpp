@@ -1,3 +1,4 @@
+#pragma once
 #include "funciones.h"
 
 using namespace std;
@@ -16,15 +17,16 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> listaPa
 	string DNIAux;
 	string tipo_sangreAux;
 	string tel_contactoAux;
-	time_t fecha_nacimientoAux;
+	string fecha_nacimientoAux;
 	float saludAux;
 	string coma;
 
 	int i = 0;
 
+	variablefile >> coma;
 
 	while (variablefile) {
-		cin >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
+		variablefile >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
 			>> fecha_nacimientoAux >> coma >> saludAux;
 
 		cPaciente pacienteAux(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);

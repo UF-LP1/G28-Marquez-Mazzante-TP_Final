@@ -19,6 +19,6 @@ public:
 	unsigned int set_dosis_sesion();
 	void set_dosis_total(unsigned int dosis_total);
 	void set_dosis_sesion(unsigned int dosis_sesion);
-	virtual int h();
+	//virtual int h();
 };
 

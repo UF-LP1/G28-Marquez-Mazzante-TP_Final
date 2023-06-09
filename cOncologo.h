@@ -16,7 +16,7 @@ public:
 	~cOncologo();
 	const string get_DNI();
 
-	unsigned int calcular_dosis_sesion(cPaciente* p);
+	//unsigned int calcular_dosis_sesion(cPaciente* p);
 	unsigned int calcular_frec_semanal(cPaciente p);
 	bool evaluar_paciente(cPaciente p);
 

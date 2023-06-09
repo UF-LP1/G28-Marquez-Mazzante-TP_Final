@@ -1,10 +1,9 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, time_t fecha_nacimiento, float salud)
-    :nombre(nombre), apellido(apellido), DNI(DNI)
+cPaciente::cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud)
+    :nombre(nombre), apellido(apellido), DNI(DNI), fecha_nacimiento(fecha_nacimiento)
 {
     this->tel_contacto = tel_contacto;
-    this->fecha_nacimiento = fecha_nacimiento;
     this->salud = salud;
 }
 

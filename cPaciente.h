@@ -13,13 +13,13 @@ private:
 	const string DNI;
 	const string tipo_sangre;
 	string tel_contacto;
-	time_t fecha_nacimiento;
+	const string fecha_nacimiento;
 	float salud;
 	vector <cTumor*> lista_tumores;
 	cFicha* ficha_paciente;
 
 public:
-	cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, time_t fecha_nacimiento, float salud);
+	cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud);
 	~cPaciente();
 
 	const string get_DNI();

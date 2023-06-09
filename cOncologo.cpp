@@ -18,7 +18,7 @@ const string cOncologo::get_DNI()
 	return this->DNI;
 }
 
-unsigned int cOncologo::calcular_dosis_sesion(cPaciente *p)
+/*unsigned int cOncologo::calcular_dosis_sesion(cPaciente* p)
 {
 	vector <cTumor*> tumoraux=p->get_lista_tumores();
 
@@ -42,3 +42,4 @@ unsigned int cOncologo::calcular_dosis_sesion(cPaciente *p)
 	
 	return 0;
 }
+*/
