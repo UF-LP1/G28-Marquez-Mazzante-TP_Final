@@ -37,3 +37,9 @@ void cTerapia::set_dosis_sesion(unsigned int dosis_sesion)
 	this->dosis_sesion = dosis_sesion;
 	return;
 }
+
+ostream& operator<<(ostream& out, cTerapia& miTerapia)
+{
+	out << miTerapia.to_string();
+	return out;
+}
