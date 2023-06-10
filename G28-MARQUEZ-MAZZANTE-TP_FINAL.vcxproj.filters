@@ -45,7 +45,7 @@
     <ClInclude Include="cTerapia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CRadHazExterno.h">
+    <ClInclude Include="cRadHazExterno.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cRadSistemica.h">
@@ -83,7 +83,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CRadHazExterno.cpp">
+    <ClCompile Include="cRadHazExterno.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cRadSistemica.cpp">

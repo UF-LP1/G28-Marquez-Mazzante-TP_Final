@@ -133,7 +133,7 @@
     <ClInclude Include="cFicha.h" />
     <ClInclude Include="cOncologo.h" />
     <ClInclude Include="cPaciente.h" />
-    <ClInclude Include="CRadHazExterno.h" />
+    <ClInclude Include="cRadHazExterno.h" />
     <ClInclude Include="cRadSistemica.h" />
     <ClInclude Include="cTerapia.h" />
     <ClInclude Include="cTumor.h" />
@@ -149,7 +149,7 @@
     <ClCompile Include="cFicha.cpp" />
     <ClCompile Include="cOncologo.cpp" />
     <ClCompile Include="cPaciente.cpp" />
-    <ClCompile Include="CRadHazExterno.cpp" />
+    <ClCompile Include="cRadHazExterno.cpp" />
     <ClCompile Include="cRadSistemica.cpp" />
     <ClCompile Include="cTerapia.cpp" />
     <ClCompile Include="cTumor.cpp" />
