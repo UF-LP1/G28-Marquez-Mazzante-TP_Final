@@ -58,7 +58,7 @@ ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumore
 
 	while (!variablefile.eof()) {
 
-		variablefile >> tamAux1 >> coma >> ubiAux2 >> coma >> radiacion_acumAux;
+		variablefile >> tamAux1 >> coma >> ubiAux2 >> coma >> radiacion_acumAux;	//no me deja leer el tamanio ni la ubicacion como enums x eso hago todo este quilombo
 
 		tamanioAux = convertir_tamanio(tamAux1);			// si no hago esto no le gusta
 		ubicacionAux = convertir_ubicacion(ubiAux2);		//si no hago esto no le gusta
