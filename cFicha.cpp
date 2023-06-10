@@ -63,3 +63,15 @@ void cFicha::set_radiacion_acum(unsigned int rad_acum)
 	this->radiacion_acum = rad_acum;
 	return;
 }
+
+string cFicha::to_string()
+{
+	stringstream salida;
+	salida << "Fecha: " << fecha << "- DNI oncologo a cargo: " << DNI_oncologo << "- Estado del paciente: " << estado;
+	return salida.str();
+}
+
+ostream& operator<<(ostream& out, cFicha& miFicha)
+{
+	out << miFicha.to_string();
+}

@@ -2,6 +2,7 @@
 #include "eEstado.h"
 #include <ctime>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -26,5 +27,8 @@ public:
 	void set_DNI_oncologo(string DNI_oncologo);
 	void set_estado(eEstado estado);
 	void set_radiacion_acum(unsigned int rad_acum);
+
+	string to_string ();
+	friend ostream & operator<<(ostream& out, cFicha& miFicha);
 };
 
