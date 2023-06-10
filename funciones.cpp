@@ -8,7 +8,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaP
 	variablefile.open(nombrearchivo, ios::in);
 	if (!(variablefile.is_open()))
 	{
-		cout << "no se pudo abrir el archivo" << endl;
+		cout << "no se pudo abrir el archivo" << endl;	//aca se podria tirar una excepcion pero mucho trabajo hacerlo ahora
 		exit;
 	}
 
@@ -32,6 +32,75 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaP
 
 		listaPacientes->push_back(pacienteAux);
 	}
-	int x = 1;
 	return variablefile;
+}
+
+ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
+{
+	ifstream variablefile;
+	variablefile.open(nombrearchivo, ios::in);
+	if (!(variablefile.is_open()))
+	{
+		cout << "no se pudo abrir el archivo" << endl;	//aca se podria tirar una excepcion pero mucho trabajo hacerlo ahora
+		exit;
+	}
+
+	string tamAux1;
+	string ubiAux2;
+	unsigned int radiacion_acumAux;
+	string coma;
+
+	eTamanio tamanioAux;
+	eUbicacion ubicacionAux;
+
+	int i = 0;
+	variablefile >> coma;
+
+	while (!variablefile.eof()) {
+
+		variablefile >> tamAux1 >> coma >> ubiAux2 >> coma >> radiacion_acumAux;
+
+		tamanioAux = convertir_tamanio(tamAux1);			// si no hago esto no le gusta
+		ubicacionAux = convertir_ubicacion(ubiAux2);		//si no hago esto no le gusta
+
+		cTumor* tumorAux = new cTumor(tamanioAux, ubicacionAux, radiacion_acumAux, nullptr);
+
+		listaTumores->push_back(tumorAux);
+	}
+	return variablefile;
+
+}
+
+eTamanio convertir_tamanio(string tamAux)
+{
+	eTamanio tamanioAux;
+	if (tamAux == "pequenio")
+		tamanioAux = pequenio;
+	else if (tamAux == "mediano")
+		tamanioAux = mediano;
+	else
+		tamanioAux = grande;
+	return tamanioAux;
+}
+
+eUbicacion convertir_ubicacion(string ubiAux)
+{
+	eUbicacion ubicacionAux;
+	if (ubiAux == "cabeza")
+		ubicacionAux = cabeza;
+	else if (ubiAux == "pulmon")
+		ubicacionAux = pulmon;
+	else if (ubiAux == "cuello")
+		ubicacionAux = cuello;
+	else if (ubiAux == "utero")
+		ubicacionAux = utero;
+	else if (ubiAux == "ojo")
+		ubicacionAux = ojo;
+	else if (ubiAux == "tiroides")
+		ubicacionAux = tiroides;
+	else if (ubiAux == "prostata")
+		ubicacionAux = prostata;
+	else
+		ubicacionAux = intestino;
+	return ubicacionAux;
 }
