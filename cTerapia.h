@@ -1,5 +1,6 @@
 #pragma once
 #include "eUbicacion.h"
+#include <sstream>
 
 
 using namespace std;
@@ -19,6 +20,7 @@ public:
 	unsigned int set_dosis_sesion();
 	void set_dosis_total(unsigned int dosis_total);
 	void set_dosis_sesion(unsigned int dosis_sesion);
-	//virtual int h();
+	
+	virtual string to_string() = 0;
 };
 
