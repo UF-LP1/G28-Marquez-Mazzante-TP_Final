@@ -15,8 +15,8 @@ public:
 	~cDosimetrista();
 	const string get_DNI();
 
-	unsigned int calcular_dosis_tot(cPaciente p);
-	void elegir_tipo_terapia(cPaciente p);
+	unsigned int calcular_dosis_tot(cPaciente* p);
+	void elegir_tipo_terapia(cPaciente* p);
 
 
 };

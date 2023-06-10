@@ -14,11 +14,12 @@ const string cDosimetrista::get_DNI()
 	return this->DNI;
 }
 
-unsigned int cDosimetrista::calcular_dosis_tot(cPaciente p)
+unsigned int cDosimetrista::calcular_dosis_tot(cPaciente* p)
 {
 	return 0;
 }
 
-void cDosimetrista::elegir_tipo_terapia(cPaciente p)
+void cDosimetrista::elegir_tipo_terapia(cPaciente* p)
 {
+
 }
