@@ -18,7 +18,7 @@ const string cOncologo::get_DNI()
 	return this->DNI;
 }
 
-/*unsigned int cOncologo::calcular_dosis_sesion(cPaciente* p)
+void cOncologo::calcular_dosis_sesion(cPaciente* p)
 {
 	vector <cTumor*> tumoraux=p->get_lista_tumores();
 
@@ -34,12 +34,11 @@ const string cOncologo::get_DNI()
 			int num = 2 + rand() % (4 - 1);
 			terapiaAux[i].set_dosis_sesion(num);
 		}
-		if (dynamic_cast<CRadHazExterno*>(terapiaAux) != nullptr) {
+		if (dynamic_cast<cRadHazExterno*>(terapiaAux) != nullptr) {
 			int num = 1 + rand() % 2;
 			terapiaAux[i].set_dosis_sesion(num);
 		}
 	}
 	
-	return 0;
+	return ;
 }
-*/

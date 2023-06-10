@@ -74,4 +74,5 @@ string cFicha::to_string()
 ostream& operator<<(ostream& out, cFicha& miFicha)
 {
 	out << miFicha.to_string();
+	return out;
 }
