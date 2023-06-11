@@ -23,6 +23,6 @@ public:
 	
 	virtual string to_string() = 0;
 	friend ostream& operator<<(ostream& out, cTerapia& miTerapia);	//no se si esta muy bien hacer esto en la padre xq es abstracta pero me da
-																	//fiaca hacerla en cada uno de las hijas (de ultima despues la pasamos)
+																	//fiaca hacerla en cada uno de las hijas (de ultima despues la pasamos)   
 };
 
