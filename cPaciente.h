@@ -30,6 +30,7 @@ public:
 	void set_lista_tumores(vector<cTumor*> l);
 	cFicha* get_ficha();
 	void set_salud(float s);
+	void set_frec_semanal(unsigned int f);
 	//bool set_concurrir(bool c);
 
 	void operator+(cTumor* tumorcito);

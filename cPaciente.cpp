@@ -52,6 +52,12 @@ void cPaciente::set_salud(float s)
     return;
 }
 
+void cPaciente::set_frec_semanal(unsigned int f)
+{
+   this-> frecuenciaSemanal = f;
+   return;
+}
+
 void cPaciente::operator+(cTumor* tumorcito)
 {
     this->lista_tumores.push_back(tumorcito);
