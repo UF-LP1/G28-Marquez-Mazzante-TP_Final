@@ -17,6 +17,7 @@ private:
 	float salud;
 	vector <cTumor*> lista_tumores;
 	cFicha* ficha_paciente;
+	unsigned int frecuenciaSemanal;
 
 public:
 	cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud);
