@@ -49,3 +49,9 @@ void cTumor::set_radiacion_acum(unsigned int rad_acum)
 	this->radiacion_acum = rad_acum;
 	return;
 }
+
+void cTumor::set_tratamiento(cTerapia* tratamiento)
+{
+	this->tratamiento = tratamiento;
+	return;
+}

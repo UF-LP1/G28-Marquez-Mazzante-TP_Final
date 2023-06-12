@@ -24,6 +24,7 @@ public:
 	void set_tamanio(eTamanio tamanio);
 	void set_ubicacion(eUbicacion ubicacion);
 	void set_radiacion_acum(unsigned int rad_acum);
+	void set_tratamiento(cTerapia* tratamiento);
 
 };
 
