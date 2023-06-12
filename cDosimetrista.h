@@ -1,5 +1,8 @@
 #pragma once
 #include "cPaciente.h"
+#include "cBraquiterapia.h"
+#include "CRadHazExterno.h"
+#include "cRadSistemica.h"
 
 using namespace std;
 

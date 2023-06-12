@@ -28,13 +28,16 @@ void cDosimetrista::elegir_tipo_terapia(cPaciente* p)
 
 		if (tumoraux->get_ubicacion() == 0 || tumoraux->get_ubicacion() == 2 || tumoraux->get_ubicacion() == 3 ||
 			tumoraux->get_ubicacion() == 4 || tumoraux->get_ubicacion() == 5) {
-			//tumoraux va a ser braquiterapia
+			cBraquiterapia * braquiterapia= new cBraquiterapia ();
+			tumoraux->set_tratamiento(braquiterapia);
 		}
 		if (tumoraux->get_ubicacion() == 6 || tumoraux->get_ubicacion() == 7) {
-			//tumoraux radioterapia sistemica
+			cRadSistemica* radsis = new cRadSistemica ();
+			tumoraux->set_tratamiento(radsis);
 		}
 		if (tumoraux->get_ubicacion() == 1 || tumoraux->get_ubicacion() == 8) {
-			//tumoraux radioterapia de haz externo
+			cRadHazExterno *radhazext= new cRadHazExterno();
+			tumoraux->set_tratamiento(radhazext);
 		}
 
 	}
