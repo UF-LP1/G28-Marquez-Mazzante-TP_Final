@@ -35,7 +35,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaP
 	return variablefile;
 }
 
-ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
+/*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
 {
 	ifstream variablefile;
 	variablefile.open(nombrearchivo, ios::in);
@@ -104,3 +104,4 @@ eUbicacion convertir_ubicacion(string ubiAux)
 		ubicacionAux = intestino;
 	return ubicacionAux;
 }
+*/

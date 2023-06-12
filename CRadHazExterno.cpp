@@ -10,6 +10,12 @@ cRadHazExterno::~cRadHazExterno()
 {
 }
 
+cRadHazExterno::cRadHazExterno() {
+    this->dosis_sesion = 0;
+    this->dosis_total = 0;
+}
+
+
 string cRadHazExterno::to_string()
 {
     stringstream salida;

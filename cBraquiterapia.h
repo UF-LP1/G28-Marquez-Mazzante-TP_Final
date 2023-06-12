@@ -4,6 +4,7 @@ class cBraquiterapia : public cTerapia
 {
 public:
 	cBraquiterapia(unsigned int dosis_totales, unsigned int dosis_sesion);
+	cBraquiterapia();
 	~cBraquiterapia();
 
 	string to_string();

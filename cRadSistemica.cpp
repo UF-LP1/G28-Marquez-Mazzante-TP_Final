@@ -6,6 +6,11 @@ cRadSistemica::cRadSistemica(unsigned int dosis_totales = 0, unsigned int dosis_
     this->dosis_sesion = dosis_sesion;
 }
 
+cRadSistemica::cRadSistemica() {
+    this->dosis_sesion = 0;
+    this->dosis_total = 0;
+}
+
 cRadSistemica::~cRadSistemica()
 {
 }

@@ -10,6 +10,11 @@ cBraquiterapia::~cBraquiterapia()
 {
 }
 
+cBraquiterapia::cBraquiterapia() {
+    this->dosis_sesion = 0;
+    this->dosis_total = 0;
+}
+
 string cBraquiterapia::to_string()
 {
     stringstream salida;
