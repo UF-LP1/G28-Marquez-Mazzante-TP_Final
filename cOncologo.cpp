@@ -43,13 +43,18 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 	return ;
 }
 
-unsigned int cOncologo::calcular_frec_semanal(cPaciente* p)
+void cOncologo::calcular_frec_semanal(cPaciente* p)
 {	
 	if (p->get_salud() <= 0.3) {
-		p->set
+		p->set_frec_semanal(3);
 	}
+	else if (p->get_salud() > 0.3 || p->get_salud() <= 0.7) {
+		p->set_frec_semanal(2);
+	}
+	else p->set_frec_semanal(1);
+	
 
-	return 0;
+	return;
 }
 
 bool cOncologo::evaluar_paciente(cPaciente* p){
