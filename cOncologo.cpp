@@ -43,6 +43,21 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 	return ;
 }
 
+unsigned int cOncologo::calcular_frec_semanal(cPaciente* p)
+{	
+	if (p->get_salud() <= 0.3) {
+		p->set
+	}
+
+	return 0;
+}
+
+bool cOncologo::evaluar_paciente(cPaciente* p){
+
+
+	return false;
+}
+
 void cOncologo::diagnosticar(cPaciente* p)
 {
 	vector <cTumor*> lista_aux;
@@ -63,6 +78,13 @@ void cOncologo::diagnosticar(cPaciente* p)
 		i++;
 	}
 	p->set_lista_tumores(lista_aux);
+}
+
+bool cOncologo::operator==(cPaciente& p)
+{	
+	if (p.get_ficha()->get_DNI_oncologo() == this->get_DNI())
+		return true;
+	else return false;
 }
 
 eTamanio convertirTam(int tam)

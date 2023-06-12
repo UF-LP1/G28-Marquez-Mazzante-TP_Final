@@ -20,8 +20,7 @@ public:
 	unsigned int calcular_frec_semanal(cPaciente* p);
 	bool evaluar_paciente(cPaciente* p);
 	void diagnosticar(cPaciente* p);
-
-
+	bool operator==(cPaciente& p);
 };
 
 eTamanio convertirTam(int tam);
