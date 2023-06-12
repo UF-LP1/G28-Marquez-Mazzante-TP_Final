@@ -72,6 +72,7 @@ eTamanio convertirTam(int tam)
 		tamanito = mediano;
 	else
 		tamanito = grande;
+	return tamanito;
 }
 
 eUbicacion convertirUbi(int ubi)
