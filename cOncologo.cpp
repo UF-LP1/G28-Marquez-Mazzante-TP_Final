@@ -48,8 +48,9 @@ void cOncologo::diagnosticar(cPaciente* p)
 	vector <cTumor*> lista_aux;
 	eTamanio tamanio_aux;
 	eUbicacion ubicacion_aux;
+	int i = 1;
 
-	for (int i = 1; i <= rand() % 4; i++)	//asumo que el paciente puede tener 0,1,2,3 tumores
+	while(i < rand() % 6)	//asumo que el paciente puede tener 0,1,2,3 tumores
 	{
 		int tam_aux = rand() % 3;
 		int ubi_aux = rand() % 9;
@@ -59,6 +60,7 @@ void cOncologo::diagnosticar(cPaciente* p)
 
 		cTumor* tumorcito = new cTumor(tamanio_aux, ubicacion_aux, 0,nullptr);	//hay q corregir este constructor
 		lista_aux.push_back(tumorcito);
+		i++;
 	}
 	p->set_lista_tumores(lista_aux);
 }
