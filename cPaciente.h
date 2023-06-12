@@ -32,6 +32,7 @@ public:
 	void set_salud(float s);
 	//bool set_concurrir(bool c);
 
-
+	void operator+(cTumor* tumorcito);
+	void operator-(cTumor* tumorcito);
 };
 

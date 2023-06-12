@@ -52,6 +52,20 @@ void cPaciente::set_salud(float s)
     return;
 }
 
+void cPaciente::operator+(cTumor* tumorcito)
+{
+    this->lista_tumores.push_back(tumorcito);
+}
+
+void cPaciente::operator-(cTumor* tumorcito)
+{
+    for (int i = 0; i < lista_tumores.size(); i++)
+    {
+        lista_tumores[i] == tumorcito;
+        lista_tumores.erase(lista_tumores.begin()+i);
+    }
+}
+
 /*bool cPaciente::set_concurrir(bool c)
 {
     this->concurrir = c;
