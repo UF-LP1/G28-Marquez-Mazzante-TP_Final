@@ -1,5 +1,6 @@
 #pragma once
-#include "cPaciente.h"
+#include "cDosimetrista.h"
+#include "cOncologo.h"
 
 using namespace std;
 

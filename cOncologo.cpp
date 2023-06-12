@@ -48,7 +48,8 @@ void cOncologo::diagnosticar(cPaciente* p)
 	vector <cTumor*> lista_aux;
 	eTamanio tamanio_aux;
 	eUbicacion ubicacion_aux;
-	for (int i = 0; i < rand() % 4; i++)	//asumo que el paciente puede tener 0,1,2,3 tumores
+
+	for (int i = 1; i <= rand() % 4; i++)	//asumo que el paciente puede tener 0,1,2,3 tumores
 	{
 		int tam_aux = rand() % 3;
 		int ubi_aux = rand() % 9;
