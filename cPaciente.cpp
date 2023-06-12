@@ -67,8 +67,8 @@ void cPaciente::operator-(cTumor* tumorcito)
 {
     for (int i = 0; i < lista_tumores.size(); i++)
     {
-        lista_tumores[i] == tumorcito;
-        lista_tumores.erase(lista_tumores.begin()+i);
+        if (lista_tumores[i] == tumorcito)
+            lista_tumores.erase(lista_tumores.begin()+i);
     }
 }
 
