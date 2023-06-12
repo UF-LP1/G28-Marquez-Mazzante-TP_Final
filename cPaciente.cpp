@@ -36,6 +36,16 @@ vector<cTumor*> cPaciente::get_lista_tumores()
     return this->lista_tumores;
 }
 
+void cPaciente::set_lista_tumores(vector<cTumor*> l)
+{
+    this->lista_tumores = l;
+}
+
+cFicha* cPaciente::get_ficha()
+{
+    return this->ficha_paciente;
+}
+
 void cPaciente::set_salud(float s)
 {
     this->salud = s;

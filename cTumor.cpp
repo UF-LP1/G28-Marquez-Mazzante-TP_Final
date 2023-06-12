@@ -1,6 +1,6 @@
 #include "cTumor.h"
 
-cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, unsigned int rad_acum, cTerapia*tratamiento)
+cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, unsigned int rad_acum = 0, cTerapia*tratamiento = nullptr)
 {
 	this->tamanio = tamanio;
 	this->ubicacion = ubicacion;

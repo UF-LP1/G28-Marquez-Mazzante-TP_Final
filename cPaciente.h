@@ -26,6 +26,8 @@ public:
 	string get_tel_contacto();
 	float get_salud();
 	vector<cTumor*> get_lista_tumores();
+	void set_lista_tumores(vector<cTumor*> l);
+	cFicha* get_ficha();
 	void set_salud(float s);
 	//bool set_concurrir(bool c);
 
