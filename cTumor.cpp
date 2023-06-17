@@ -55,3 +55,8 @@ void cTumor::set_tratamiento(cTerapia* tratamiento)
 	this->tratamiento = tratamiento;
 	return;
 }
+
+float cTumor::get_mejoria()
+{
+	return this->mejoria;
+}
