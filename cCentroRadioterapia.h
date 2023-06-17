@@ -6,6 +6,7 @@ using namespace std;
 
 class cCentroRadioterapia
 {
+	list <cPaciente*> lista_pacientes;
 public:
 	string nombre_centro;
 

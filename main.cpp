@@ -10,7 +10,6 @@ int main()
 	string nombre_archivo_pac = "archivopacientes.csv";
 //	string nombre_archivo_tum = "archivotumores.csv";
 	vector <cPaciente*> listaPacientes;
-	vector <cTumor*> listaTumores;
 	
 	ifstream variablefile1;
 	variablefile1 = leer_archivo_pacientes(nombre_archivo_pac, &listaPacientes);

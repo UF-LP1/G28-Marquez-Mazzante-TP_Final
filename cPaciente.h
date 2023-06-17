@@ -1,7 +1,11 @@
 #pragma once
+
+#ifndef _H_cPaciente_
+
+#define _H_cPaciente_
+
 #include "cTumor.h"
 #include "cFicha.h"
-#include <vector>
 
 using namespace std;
 
@@ -35,5 +39,7 @@ public:
 
 	void operator+(cTumor* tumorcito);
 	void operator-(cTumor* tumorcito);
+
 };
 
+#endif // !_H_cPaciente_

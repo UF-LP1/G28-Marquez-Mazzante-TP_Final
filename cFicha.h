@@ -1,8 +1,6 @@
 #pragma once
 #include "eEstado.h"
-#include <ctime>
-#include <string>
-#include <sstream>
+#include "headers.h"
 
 using namespace std;
 

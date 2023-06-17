@@ -1,6 +1,5 @@
 #pragma once
 #include "cPaciente.h"
-#include <vector>
 
 using namespace std;
 
