@@ -8,20 +8,19 @@ using namespace std;
 int main()
 {
 	string nombre_archivo_pac = "archivopacientes.csv";
-//	string nombre_archivo_tum = "archivotumores.csv";
-	vector <cPaciente*> listaPacientes;
-	
+	list <cPaciente*> listaPacientes;
 	ifstream variablefile1;
 	variablefile1 = leer_archivo_pacientes(nombre_archivo_pac, &listaPacientes);
+	vector <cDosimetrista*> lista_dosimetristas = generar_dosimetristas();
+	vector <cOncologo*> lista_oncologos = generar_oncologos();
 
-//	ifstream variablefile2;
-	//variablefile2 = leer_archivo_tumores(nombre_archivo_tum, &listaTumores);
+	cCentroRadioterapia* miCentro = new cCentroRadioterapia("Favaloro_Center", listaPacientes, lista_dosimetristas, lista_oncologos);
 
-	cOncologo* oncologo1 = new cOncologo("juan", "gomez", "23123123");
+
 
 	for (int i = 0; i < listaPacientes.size(); i++)
 	{
-		oncologo1->diagnosticar(listaPacientes[i]);
+		//oncologo1->diagnosticar(listaPacientes[i]);
 	}
 	
 	return 0;

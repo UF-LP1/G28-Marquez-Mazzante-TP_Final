@@ -9,12 +9,13 @@ class cFicha
 private:
 	time_t fecha;
 	string DNI_oncologo;
+	string DNI_dosimetrista;
 	eEstado estado;
 	unsigned int radiacion_acum;
 
 public:
 	cFicha();
-	cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, eEstado estado);
+	cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado);
 	~cFicha();
 
 	time_t get_fecha();

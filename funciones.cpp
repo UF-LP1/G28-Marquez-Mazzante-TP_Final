@@ -3,13 +3,13 @@
 
 using namespace std;
 
-ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaPacientes) {
+ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPacientes) {
 	ifstream variablefile;
 	variablefile.open(nombrearchivo, ios::in);
 	if (!(variablefile.is_open()))
 	{
 		cout << "no se pudo abrir el archivo" << endl;	//aca se podria tirar una excepcion pero mucho trabajo hacerlo ahora
-		exit;
+		return variablefile;
 	}
 
 	string nombreAux;
@@ -33,6 +33,28 @@ ifstream leer_archivo_pacientes(string nombrearchivo, vector<cPaciente*> *listaP
 		listaPacientes->push_back(pacienteAux);
 	}
 	return variablefile;
+}
+
+vector<cDosimetrista*> generar_dosimetristas()
+{
+	vector <cDosimetrista*> listita;
+	cDosimetrista* dosimetrista1 = new cDosimetrista("juan", "perez", "23145672");
+	cDosimetrista* dosimetrista2 = new cDosimetrista("carlos", "gimenez", "34213235");
+	cDosimetrista* dosimetrista3 = new cDosimetrista("susana", "estebaniez", "232445554");
+	listita.push_back(dosimetrista1);
+	listita.push_back(dosimetrista2);
+	listita.push_back(dosimetrista3);
+	return listita;
+}
+
+vector<cOncologo*> generar_oncologos()
+{
+	vector <cOncologo*> listita;
+	cOncologo* oncologo1 = new cOncologo("manuel", "belgrano", "34169700");
+	cOncologo* oncologo2 = new cOncologo("mercedes", "sarmiento", "21800900");
+	listita.push_back(oncologo1);
+	listita.push_back(oncologo2);
+	return listita;
 }
 
 /*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)

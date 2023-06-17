@@ -8,11 +8,16 @@ cFicha::cFicha()
 	this->radiacion_acum = 0;
 }
 
-cFicha::cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, eEstado estado)
+cFicha::cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
+{
+}
+
+cFicha::cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
 {
 	this->fecha = fecha;
 	this->radiacion_acum = radiacion_acum;
 	this->DNI_oncologo = DNI_oncologo;
+	this->DNI_dosimetrista = DNI_dosimetrista;
 	this->estado = estado;
 }
 
@@ -67,7 +72,7 @@ void cFicha::set_radiacion_acum(unsigned int rad_acum)
 string cFicha::to_string()
 {
 	stringstream salida;
-	salida << "Fecha: " << fecha << "- DNI oncologo a cargo: " << DNI_oncologo << "- Estado del paciente: " << estado;
+	salida << "Fecha: " << fecha << "- DNI oncologo a cargo: " << DNI_oncologo << "- DNI dosimetrista a cargo: " << DNI_dosimetrista << "- Estado del paciente: " << estado;
 	return salida.str();
 }
 
