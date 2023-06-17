@@ -39,7 +39,7 @@ public:
 
 	void operator+(cTumor* tumorcito);
 	void operator-(cTumor* tumorcito);
-
+	bool operator == (string DNI_onc);
 };
 
 #endif // !_H_cPaciente_

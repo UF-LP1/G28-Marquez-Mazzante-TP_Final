@@ -72,6 +72,14 @@ void cPaciente::operator-(cTumor* tumorcito)
     }
 }
 
+bool cPaciente::operator==(string DNI_onc)
+{
+    bool flag = false;
+    if (this->ficha_paciente->get_DNI_oncologo() == DNI_onc)
+        flag = true;
+    return flag;
+}
+
 /*bool cPaciente::set_concurrir(bool c)
 {
     this->concurrir = c;
