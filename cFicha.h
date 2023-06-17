@@ -11,6 +11,7 @@ private:
 	string DNI_oncologo;
 	string DNI_dosimetrista;
 	eEstado estado;
+	unsigned int radiacion_max;
 	unsigned int radiacion_acum;
 
 public:

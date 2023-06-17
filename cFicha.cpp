@@ -4,12 +4,9 @@ cFicha::cFicha()
 {
 	this->fecha = time(0);
 	this->DNI_oncologo = "000000000";
+	this->DNI_dosimetrista = "000000000";
 	this->estado = no_tratado;
 	this->radiacion_acum = 0;
-}
-
-cFicha::cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
-{
 }
 
 cFicha::cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
