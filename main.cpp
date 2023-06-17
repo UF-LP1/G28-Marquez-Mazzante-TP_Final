@@ -1,6 +1,5 @@
 #pragma once
 #include "funciones.h"
-#include <string>
 
 using namespace std;
 
@@ -14,14 +13,9 @@ int main()
 	vector <cDosimetrista*> lista_dosimetristas = generar_dosimetristas();
 	vector <cOncologo*> lista_oncologos = generar_oncologos();
 
-	cCentroRadioterapia* miCentro = new cCentroRadioterapia("Favaloro_Center", listaPacientes, lista_dosimetristas, lista_oncologos);
+	cCentroRadioterapia* miCentro = new cCentroRadioterapia("Favaloro_Center","sarmiento_1853", listaPacientes, lista_dosimetristas, lista_oncologos);
 
-
-
-	for (int i = 0; i < listaPacientes.size(); i++)
-	{
-		//oncologo1->diagnosticar(listaPacientes[i]);
-	}
+	
 	
 	return 0;
 }
