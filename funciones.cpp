@@ -52,8 +52,10 @@ vector<cOncologo*> generar_oncologos()
 	vector <cOncologo*> listita;
 	cOncologo* oncologo1 = new cOncologo("manuel", "belgrano", "34169700");
 	cOncologo* oncologo2 = new cOncologo("mercedes", "sarmiento", "21800900");
+	cOncologo* oncologo3 = new cOncologo("pedro", "argento", "23423564");
 	listita.push_back(oncologo1);
 	listita.push_back(oncologo2);
+	listita.push_back(oncologo3);
 	return listita;
 }
 

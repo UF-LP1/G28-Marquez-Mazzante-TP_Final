@@ -52,3 +52,69 @@ bool cCentroRadioterapia::contactar_paciente(cPaciente p)
 
 	return contestar;
 }
+
+vector<cDosimetrista*> cCentroRadioterapia::get_lista_dosimetristas()
+{
+	return this->lista_dosimetristas;
+}
+
+vector<cOncologo*> cCentroRadioterapia::get_lista_oncologos()
+{
+	return this->lista_oncologos;
+}
+
+cPaciente* cCentroRadioterapia::operator[](int pos)
+{
+	if (pos > this->lista_pacientes.size() || pos < 0)
+		throw new exception("la posicion no existe");
+
+	list <cPaciente*>::iterator it = this->lista_pacientes.begin();
+
+	for (int i = 0; i < pos; i++)
+	{
+		it++;
+	}
+	return *it;
+}
+
+void cCentroRadioterapia::operator+(cPaciente* p)
+{
+	this->lista_pacientes.push_back(p);
+}
+
+void cCentroRadioterapia::operator+(cDosimetrista* d)
+{
+	this->lista_dosimetristas.push_back(d);
+}
+
+void cCentroRadioterapia::operator+(cOncologo* o)
+{
+	this->lista_oncologos.push_back(o);
+}
+
+void cCentroRadioterapia::operator-(cPaciente * p)
+{
+	this->lista_pacientes.remove(p);
+}
+
+void cCentroRadioterapia::operator-(cDosimetrista* d)
+{
+	int cont = 0;
+	for (int i = 0; i < this->lista_dosimetristas.size(); i++)
+	{
+		if (this->lista_dosimetristas[i] == d)
+			cont = i;
+	}
+	this->lista_dosimetristas.erase(this->lista_dosimetristas.begin() + cont);
+}
+
+void cCentroRadioterapia::operator-(cOncologo* o)
+{
+	int cont = 0;
+	for (int i = 0; i < this->lista_oncologos.size(); i++)
+	{
+		if (this->lista_oncologos[i] == o)
+			cont = i;
+	}
+	this->lista_oncologos.erase(this->lista_oncologos.begin() + cont);
+}
