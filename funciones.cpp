@@ -78,7 +78,7 @@ void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrist
 	}
 }
 
-vector<cPaciente*> buscarPacientes(cTerapia* terapia, cTumor* tumor, cCentroRadioterapia &micentro)
+vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, cTumor* tumor, cCentroRadioterapia &micentro)
 {
 	vector<cPaciente*> pacientesEncontrados;
 	for (cPaciente* pacienteaux : micentro.lista_pacientes) {
@@ -91,8 +91,20 @@ vector<cPaciente*> buscarPacientes(cTerapia* terapia, cTumor* tumor, cCentroRadi
 	}
 	
 	if (pacientesEncontrados.size() == 0) throw exception("no se encontro ningun paciente con esas caracteristicas");
+	return pacientesEncontrados;
+}
 
-
+vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro)
+{
+	vector<cPaciente*> pacientesEncontrados;
+	for (cPaciente* pacienteaux : micentro.lista_pacientes)
+	{
+		for (int i = 0; i < pacienteaux->get_lista_tumores().size(); i++)
+		{
+			if ((float)pacienteaux->get_lista_tumores()[i]->get_radiacion_acum() >= 0, 95 * pacienteaux->get_lista_tumores()[i]->get_radiacion_max())
+				pacientesEncontrados.push_back(pacienteaux);
+		}
+	}
 	return pacientesEncontrados;
 }
 

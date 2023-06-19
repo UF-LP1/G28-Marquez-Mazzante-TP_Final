@@ -9,7 +9,8 @@ vector <cDosimetrista*> generar_dosimetristas();
 vector <cOncologo*> generar_oncologos();
 void asignar_oncologos(list<cPaciente*>&listaPacientes, vector<cOncologo*>lista_oncologos);
 void asignar_dosimetristas(list<cPaciente*>&listaPacientes, vector<cDosimetrista*>lista_dosimetristas);
-vector<cPaciente*> buscarPacientes(cTerapia* terapia, cTumor *tumor, cCentroRadioterapia &micentro);
+vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, cTumor *tumor, cCentroRadioterapia &micentro);
+vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro);
 
 //ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores);
 //eTamanio convertir_tamanio(string tamAux);

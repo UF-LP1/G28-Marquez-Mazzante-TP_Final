@@ -28,6 +28,11 @@ unsigned int cTumor::get_radiacion_acum()
 	return this->radiacion_acum;
 }
 
+unsigned int cTumor::get_radiacion_max()
+{
+	return this->radiacion_max;
+}
+
 cTerapia* cTumor::get_tratamiento()
 {
 	return this->tratamiento;
