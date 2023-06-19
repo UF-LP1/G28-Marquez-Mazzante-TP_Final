@@ -27,5 +27,6 @@ public:
 	void operator - (cPaciente * p);
 	void operator - (cDosimetrista* d);
 	void operator - (cOncologo* o);
+	friend vector<cPaciente*> buscarPacientes(cTerapia* terapia, cTumor *tumor, cCentroRadioterapia &micentro);
 };
 

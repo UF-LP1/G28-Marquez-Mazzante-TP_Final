@@ -78,6 +78,24 @@ void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrist
 	}
 }
 
+vector<cPaciente*> buscarPacientes(cTerapia* terapia, cTumor* tumor, cCentroRadioterapia &micentro)
+{
+	vector<cPaciente*> pacientesEncontrados;
+	for (cPaciente* pacienteaux : micentro.lista_pacientes) {
+
+		for(int i=0;i<pacienteaux->get_lista_tumores().size();i++)
+
+			if (pacienteaux->get_lista_tumores()[i] == tumor && pacienteaux->get_lista_tumores()[i]->get_tratamiento() == terapia) {
+				pacientesEncontrados.push_back(pacienteaux);
+			}
+	}
+	
+	if (pacientesEncontrados.size() == 0) throw exception("no se encontro ningun paciente con esas caracteristicas");
+
+
+	return pacientesEncontrados;
+}
+
 /*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
 {
 	ifstream variablefile;
