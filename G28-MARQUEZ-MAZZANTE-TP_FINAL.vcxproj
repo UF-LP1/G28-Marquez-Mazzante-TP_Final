@@ -140,6 +140,7 @@
     <ClInclude Include="eEstado.h" />
     <ClInclude Include="eTamanio.h" />
     <ClInclude Include="eUbicacion.h" />
+    <ClInclude Include="excepcionpersonalizada.h" />
     <ClInclude Include="funciones.h" />
     <ClInclude Include="headers.h" />
   </ItemGroup>

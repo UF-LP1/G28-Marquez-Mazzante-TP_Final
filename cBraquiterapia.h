@@ -3,7 +3,7 @@
 class cBraquiterapia : public cTerapia
 {
 public:
-	cBraquiterapia(unsigned int dosis_totales, unsigned int dosis_sesion);
+	cBraquiterapia(unsigned int dosis_totaltumor, unsigned int dosis_totalpaciente, unsigned int dosis_sesion);
 	cBraquiterapia();
 	~cBraquiterapia();
 

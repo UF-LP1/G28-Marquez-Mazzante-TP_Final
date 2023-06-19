@@ -35,7 +35,7 @@ unsigned int cTerapia::set_dosis_sesion()
 
 void cTerapia::set_dosis_total(unsigned int dosis_total)
 {
-	this->dosis_total = dosis_total;
+	this->dosis_totalpaciente = dosis_total;
 	return;
 }
 
