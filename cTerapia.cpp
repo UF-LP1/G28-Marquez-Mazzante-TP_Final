@@ -33,7 +33,7 @@ unsigned int cTerapia::set_dosis_sesion()
 	return this->dosis_sesion;
 }
 
-void cTerapia::set_dosis_total(unsigned int dosis_total)
+void cTerapia::set_dosis_totalpaciente(unsigned int dosis_total)
 {
 	this->dosis_totalpaciente = dosis_total;
 	return;
@@ -43,6 +43,11 @@ void cTerapia::set_dosis_sesion(unsigned int dosis_sesion)
 {
 	this->dosis_sesion = dosis_sesion;
 	return;
+}
+
+void cTerapia::set_dosis_totaltumor(unsigned int dosist)
+{
+	this->dosis_totaltumor = dosist;
 }
 
 ostream& operator<<(ostream& out, cTerapia& miTerapia)

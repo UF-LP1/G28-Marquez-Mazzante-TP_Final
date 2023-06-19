@@ -20,9 +20,9 @@ public:
 	unsigned int get_dosis_totaltumor();
 	unsigned int get_dosis_totalpaciente();
 	unsigned int set_dosis_sesion();
-	void set_dosis_total(unsigned int dosis_total);
+	void set_dosis_totalpaciente(unsigned int dosis_total);
 	void set_dosis_sesion(unsigned int dosis_sesion);
-	
+	void set_dosis_totaltumor(unsigned int dosist);
 	virtual string to_string() = 0;
 	friend ostream& operator<<(ostream& out, cTerapia& miTerapia);   
 };

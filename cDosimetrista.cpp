@@ -17,9 +17,23 @@ const string cDosimetrista::get_DNI()
 unsigned int cDosimetrista::calcular_dosis_tot(cPaciente* p)
 {
 	if (p->get_lista_tumores().size() == 0) throw PacienteSinTumores();
-
 	unsigned int dosismax;
-	if (p->get_lista_tumores().size() == 1) {
+	for (int i = 0; i < p->get_lista_tumores().size(); i++)
+	{
+		if (dynamic_cast<cBraquiterapia*>(p->get_lista_tumores()[i]->get_tratamiento()) != nullptr) {
+			p->get_lista_tumores()[i]->get_tratamiento()->set_dosis_totalpaciente(180);
+			p->get_lista_tumores()[i]->get_tratamiento()->set_dosis_totaltumor(150);
+		}
+		else if (dynamic_cast<cRadHazExterno*>(p->get_lista_tumores()[i]->get_tratamiento()) != nullptr) {
+			p->get_lista_tumores()[i]->get_tratamiento()->set_dosis_totalpaciente(100);
+			p->get_lista_tumores()[i]->get_tratamiento()->set_dosis_totaltumor(60);
+		}
+		else if (dynamic_cast<cRadSistemica*>(p->get_lista_tumores()[i]->get_tratamiento()) != nullptr) {
+			p->get_lista_tumores()[i]->get_tratamiento()->set_dosis_totalpaciente(100);
+			p->get_lista_tumores()[i]->get_tratamiento()->set_dosis_totaltumor(60);
+		}
+	}
+	if (p->get_lista_tumores().size() == 1) { 
 		dosismax = p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_totalpaciente();
 	}
 	else if (p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_totalpaciente() > p->get_lista_tumores()[1]->get_tratamiento()->get_dosis_totalpaciente()) {
