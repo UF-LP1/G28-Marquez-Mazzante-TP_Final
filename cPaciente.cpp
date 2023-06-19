@@ -46,6 +46,11 @@ cFicha* cPaciente::get_ficha()
     return this->ficha_paciente;
 }
 
+void cPaciente::set_ficha(cFicha* fichita)
+{
+    this->ficha_paciente = fichita;
+}
+
 void cPaciente::set_salud(float s)
 {
     this->salud = s;

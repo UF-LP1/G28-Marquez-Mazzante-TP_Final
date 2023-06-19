@@ -59,6 +59,25 @@ vector<cOncologo*> generar_oncologos()
 	return listita;
 }
 
+void asignar_oncologos(list<cPaciente*>& listaPacientes, vector<cOncologo*> lista_oncologos)
+{
+	for (cPaciente* aux : listaPacientes)
+	{
+		string DNI_aux = (lista_oncologos[rand() % 2]->get_DNI());
+		aux->set_ficha (new cFicha());
+		aux->get_ficha()->set_DNI_oncologo(DNI_aux);
+	}
+}
+
+void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrista*> lista_dosimetristas)
+{
+	for (cPaciente* aux : listaPacientes)
+	{
+		string DNI_aux = (lista_dosimetristas[rand() % 2]->get_DNI());
+		aux->get_ficha()->set_DNI_dosimetrista(DNI_aux);
+	}
+}
+
 /*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
 {
 	ifstream variablefile;

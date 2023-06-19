@@ -54,6 +54,11 @@ void cFicha::set_DNI_oncologo(string DNI_oncologo)
 	return;
 }
 
+void cFicha::set_DNI_dosimetrista(string DNI_dosimetrista)
+{
+	this->DNI_dosimetrista = DNI_dosimetrista;
+}
+
 void cFicha::set_estado(eEstado estado)
 {
 	this->estado = estado;

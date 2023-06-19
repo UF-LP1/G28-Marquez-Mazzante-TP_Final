@@ -25,6 +25,7 @@ public:
 	unsigned int get_radiacion_acum();
 	void set_fecha(time_t fecha);
 	void set_DNI_oncologo(string DNI_oncologo);
+	void set_DNI_dosimetrista(string DNI_dosimetrista);
 	void set_estado(eEstado estado);
 	void set_radiacion_acum(unsigned int rad_acum);
 

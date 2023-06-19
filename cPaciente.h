@@ -33,6 +33,7 @@ public:
 	vector<cTumor*> get_lista_tumores();
 	void set_lista_tumores(vector<cTumor*> l);
 	cFicha* get_ficha();
+	void set_ficha(cFicha* fichita);
 	void set_salud(float s);
 	void set_frec_semanal(unsigned int f);
 	//bool set_concurrir(bool c);
