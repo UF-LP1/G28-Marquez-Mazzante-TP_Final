@@ -115,8 +115,8 @@ void cOncologo::diagnosticar(cPaciente* p)
 	
 	int i = 0;
 
-	srand(time(NULL));
-	int numero_random = (1 + rand() % 2); // si la salud es != de 1 va a tener 1 o 2 tumores.
+	int numero_random = (1 + (rand() % 2)); // si la salud es != de 1 va a tener 1 o 2 tumores.
+
 	while(i < numero_random)
 	{
 		int tam_aux = rand() % 3;

@@ -21,6 +21,8 @@ int main()
 	asignar_oncologos(listaPacientes, lista_oncologos);
 	asignar_dosimetristas(listaPacientes, lista_dosimetristas);
 
+
+
 	for (cPaciente* pacientito : listaPacientes)
 	{
 		for (cOncologo* oncologocito : lista_oncologos)
