@@ -27,16 +27,38 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 		cTerapia* terapiaAux = tumoraux[i]->get_tratamiento();
 
 		if (dynamic_cast<cBraquiterapia*>(terapiaAux) != nullptr) {
-			int num = 6 + rand() % (8 - 5);
-			terapiaAux[i].set_dosis_sesion(num);
+
+			if (p->get_salud() <= 0.3){
+				terapiaAux[i].set_dosis_sesion(8);
+			}
+			else if (p->get_salud() > 0.3 && p->get_salud() <= 0.6) {
+				terapiaAux[i].set_dosis_sesion(7);
+			}
+			else if (p->get_salud() > 0.6) {
+				terapiaAux[i].set_dosis_sesion(6);
+			}
 		}
 		if (dynamic_cast<cRadSistemica*>(terapiaAux) != nullptr) {
-			int num = 2 + rand() % (4 - 1);
-			terapiaAux[i].set_dosis_sesion(num);
+			if (p->get_salud() <= 0.3) {
+				terapiaAux[i].set_dosis_sesion(4);
+			}
+			else if (p->get_salud() > 0.3 && p->get_salud() <= 0.6) {
+				terapiaAux[i].set_dosis_sesion(3);
+			}
+			else if (p->get_salud() > 0.6) {
+				terapiaAux[i].set_dosis_sesion(2);
+			}
 		}
 		if (dynamic_cast<cRadHazExterno*>(terapiaAux) != nullptr) {
-			int num = 1 + rand() % 2;
-			terapiaAux[i].set_dosis_sesion(num);
+			if (p->get_salud() <= 0.3) {
+				terapiaAux[i].set_dosis_sesion(2);
+			}
+			else if (p->get_salud() > 0.3 && p->get_salud() <= 0.6) {
+				terapiaAux[i].set_dosis_sesion(1);
+			}
+			else if (p->get_salud() > 0.6) {
+				terapiaAux[i].set_dosis_sesion(1);
+			}
 		}
 	}
 	
@@ -83,7 +105,7 @@ void cOncologo::diagnosticar(cPaciente* p)
 	eUbicacion ubicacion_aux;
 	int i = 1;
 
-	while(i < rand() % 6)	//asumo que el paciente puede tener 0,1,2,3 tumores
+	while(i < rand() % 3)	//asumo que el paciente puede tener 0,1,2 tumores
 	{
 		int tam_aux = rand() % 3;
 		int ubi_aux = rand() % 9;
