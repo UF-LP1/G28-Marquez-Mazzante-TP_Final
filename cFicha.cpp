@@ -32,6 +32,11 @@ string cFicha::get_DNI_oncologo()
 	return this->DNI_oncologo;
 }
 
+string cFicha::get_DNI_dosimtetirsta()
+{
+	return this->DNI_dosimetrista;
+}
+
 eEstado cFicha::get_estado()
 {
 	return this->estado;

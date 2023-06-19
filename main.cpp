@@ -21,6 +21,47 @@ int main()
 	asignar_oncologos(listaPacientes, lista_oncologos);
 	asignar_dosimetristas(listaPacientes, lista_dosimetristas);
 
+	for (cPaciente* pacientito : listaPacientes)
+	{
+		for (cOncologo* oncologocito : lista_oncologos)
+		{
+			if (pacientito->get_ficha()->get_DNI_oncologo() == oncologocito->get_DNI())
+				oncologocito->diagnosticar(pacientito);
+		}
+		for (cDosimetrista* dosimetristacito : lista_dosimetristas)
+		{
+			if (pacientito->get_ficha()->get_DNI_dosimtetirsta() == dosimetristacito->get_DNI())
+			{
+				dosimetristacito->elegir_tipo_terapia(pacientito);
+				try {
+					dosimetristacito->calcular_dosis_tot(pacientito);
+				}
+				catch (PacienteSinTumores & exe) {
+					cout << exe.what() << endl;
+				}
+			}		
+		}
+		for (cOncologo* oncologocito : lista_oncologos)
+		{
+			if (pacientito->get_ficha()->get_DNI_oncologo() == oncologocito->get_DNI())
+			{
+				try {
+					oncologocito->calcular_dosis_sesion(pacientito);
+				}
+				catch (PacienteSinTumores& exe) {
+					cout << exe.what() << endl;
+				}
+				try {
+					oncologocito->calcular_frec_semanal(pacientito);
+				}
+				catch (PacienteSinTumores& exe) {
+					cout << exe.what() << endl;
+				}
+			}
+
+		}
+	}
+
 	cPaciente * pacaux1 = miCentro[5];		//me guardo a la paciente guadalupe
 	miCentro - (miCentro[5]);				//elimino de mi centro a la paciente guadalupe
 	miCentro + pacaux1;						//agrego a mi centro a la paciente guadalupe

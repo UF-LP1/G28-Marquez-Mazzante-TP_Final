@@ -21,6 +21,7 @@ public:
 
 	time_t get_fecha();
 	string get_DNI_oncologo();
+	string get_DNI_dosimtetirsta();
 	eEstado get_estado();
 	unsigned int get_radiacion_acum();
 	void set_fecha(time_t fecha);

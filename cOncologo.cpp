@@ -20,6 +20,9 @@ const string cOncologo::get_DNI()
 
 void cOncologo::calcular_dosis_sesion(cPaciente* p)
 {
+	if(p->get_lista_tumores().size() == 0)
+		throw PacienteSinTumores();
+
 	vector <cTumor*> tumoraux=p->get_lista_tumores();
 
 	for (int i = 0; i < p->get_lista_tumores().size(); i++) {
@@ -67,6 +70,9 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 
 void cOncologo::calcular_frec_semanal(cPaciente* p)
 {	
+	if (p->get_lista_tumores().size() == 0)
+		throw PacienteSinTumores();
+
 	if (p->get_salud() <= 0.3) {
 		p->set_frec_semanal(3);
 	}
@@ -103,9 +109,15 @@ void cOncologo::diagnosticar(cPaciente* p)
 	vector <cTumor*> lista_aux;
 	eTamanio tamanio_aux;
 	eUbicacion ubicacion_aux;
-	int i = 1;
 
-	while(i < rand() % 3)	//asumo que el paciente puede tener 0,1,2 tumores
+	if (p->get_salud() == 1)
+		return;
+	
+	int i = 0;
+
+	srand(time(NULL));
+	int numero_random = (1 + rand() % 2); // si la salud es != de 1 va a tener 1 o 2 tumores.
+	while(i < numero_random)
 	{
 		int tam_aux = rand() % 3;
 		int ubi_aux = rand() % 9;
