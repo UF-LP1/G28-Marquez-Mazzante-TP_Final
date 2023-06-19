@@ -11,7 +11,6 @@ private:
 	eTamanio tamanio;
 	eUbicacion ubicacion;
 	float mejoria;
-	unsigned int radiacion_max;
 	unsigned int radiacion_acum;
 	cTerapia* tratamiento;
 
