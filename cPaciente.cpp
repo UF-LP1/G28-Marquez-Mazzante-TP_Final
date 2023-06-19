@@ -41,9 +41,19 @@ void cPaciente::set_lista_tumores(vector<cTumor*> l)
     this->lista_tumores = l;
 }
 
+void cPaciente::set_dosis_max(unsigned int dosis_max)
+{
+    this->dosis_max = dosis_max;
+}
+
 cFicha* cPaciente::get_ficha()
 {
     return this->ficha_paciente;
+}
+
+unsigned int cPaciente::get_dosis_max()
+{
+    return this->dosis_max;
 }
 
 void cPaciente::set_ficha(cFicha* fichita)
