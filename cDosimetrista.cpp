@@ -16,8 +16,18 @@ const string cDosimetrista::get_DNI()
 
 unsigned int cDosimetrista::calcular_dosis_tot(cPaciente* p)
 {
-	return 0;
+	unsigned int dosismax;
+	if (p->get_lista_tumores().size() == 1) {
+		dosismax = p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_total();
+	}
+	else if (p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_total() > p->get_lista_tumores()[1]->get_tratamiento()->get_dosis_total()) {
+		dosismax = p->get_lista_tumores()[1]->get_tratamiento()->get_dosis_total();
+	}
+	else dosismax = p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_total();
+
+	return dosismax;
 }
+
 
 void cDosimetrista::elegir_tipo_terapia(cPaciente* p)
 {
