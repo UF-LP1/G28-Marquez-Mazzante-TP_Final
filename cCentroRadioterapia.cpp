@@ -16,7 +16,7 @@ cCentroRadioterapia::cCentroRadioterapia(string nombre_centro, string direccion,
 
 cCentroRadioterapia::~cCentroRadioterapia()
 {
-	for (cPaciente* auxpac : this->lista_pacientes)
+	/*for (cPaciente* auxpac : this->lista_pacientes)
 	{
 		if (auxpac != nullptr)
 			delete auxpac;
@@ -30,7 +30,7 @@ cCentroRadioterapia::~cCentroRadioterapia()
 	{
 		if (auxonc != nullptr)
 			delete auxonc;
-	}
+	}*/
 }
 
 bool cCentroRadioterapia::contactar_paciente(cPaciente p)

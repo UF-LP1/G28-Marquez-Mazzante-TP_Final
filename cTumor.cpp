@@ -10,7 +10,7 @@ cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, unsigned int rad_acum = 0
 
 cTumor::~cTumor()
 {
-	delete tratamiento;
+	//delete tratamiento;
 }
 
 eTamanio cTumor::get_tamanio()
@@ -27,11 +27,6 @@ unsigned int cTumor::get_radiacion_acum()
 {
 	return this->radiacion_acum;
 }
-
-//unsigned int cTumor::get_radiacion_max()
-//{
-//	return this->radiacion_max;
-//}
 
 cTerapia* cTumor::get_tratamiento()
 {

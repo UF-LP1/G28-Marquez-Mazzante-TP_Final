@@ -21,7 +21,6 @@ public:
 	eTamanio get_tamanio();
 	eUbicacion get_ubicacion();
 	unsigned int get_radiacion_acum();
-	//unsigned int get_radiacion_max();
 	cTerapia* get_tratamiento();
 	void set_tamanio(eTamanio tamanio);
 	void set_ubicacion(eUbicacion ubicacion);

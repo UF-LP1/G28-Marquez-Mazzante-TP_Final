@@ -130,12 +130,12 @@ void simular_hospital(cCentroRadioterapia & miCentro)
 
 void simular_sesion(cPaciente* pacientito) {
 
-	int i = 0;
-	for (int i = 0; i < pacientito->get_lista_tumores().size(); i++) {
-
+	int i;
+	for (i = 0; i < pacientito->get_lista_tumores().size(); i++) 
+	{
 		pacientito->get_lista_tumores()[i]->set_radiacion_acum(pacientito->get_lista_tumores()[i]->get_tratamiento()->get_dosis_sesion());
 		if (pacientito->get_lista_tumores()[i]->get_mejoria() < 100) {
-			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 4);
+			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 11);
 		}
 
 	}
