@@ -72,7 +72,7 @@ void cFicha::set_estado(eEstado estado)
 
 void cFicha::set_radiacion_acum(unsigned int rad_acum)
 {
-	this->radiacion_acum = rad_acum;
+	this->radiacion_acum += rad_acum;
 	return;
 }
 

@@ -50,6 +50,11 @@ void cTerapia::set_dosis_totaltumor(unsigned int dosist)
 	this->dosis_totaltumor = dosist;
 }
 
+unsigned int cTerapia::get_dosis_sesion()
+{
+	return this->dosis_sesion;
+}
+
 ostream& operator<<(ostream& out, cTerapia& miTerapia)
 {
 	out << miTerapia.to_string();

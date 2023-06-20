@@ -23,6 +23,7 @@ public:
 	void set_dosis_totalpaciente(unsigned int dosis_total);
 	void set_dosis_sesion(unsigned int dosis_sesion);
 	void set_dosis_totaltumor(unsigned int dosist);
+	unsigned int get_dosis_sesion();
 	virtual string to_string() = 0;
 	friend ostream& operator<<(ostream& out, cTerapia& miTerapia);   
 };

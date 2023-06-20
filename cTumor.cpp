@@ -52,7 +52,7 @@ void cTumor::set_ubicacion(eUbicacion ubicacion)
 
 void cTumor::set_radiacion_acum(unsigned int rad_acum)
 {
-	this->radiacion_acum = rad_acum;
+	this->radiacion_acum += rad_acum;
 	return;
 }
 
@@ -65,6 +65,11 @@ void cTumor::set_tratamiento(cTerapia* tratamiento)
 float cTumor::get_mejoria()
 {
 	return this->mejoria;
+}
+
+void cTumor::set_mejoria(unsigned int m)
+{
+	this->mejoria += m;
 }
 
 string cTumor::to_string()
