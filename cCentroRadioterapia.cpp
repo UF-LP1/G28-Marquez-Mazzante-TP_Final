@@ -37,7 +37,7 @@ bool cCentroRadioterapia::contactar_paciente(cPaciente p)
 {
 	int respuesta;
 	bool contestar = false;
-	srand(time(NULL));
+	//srand(time(NULL));
 
 	respuesta = rand() % 2;
 

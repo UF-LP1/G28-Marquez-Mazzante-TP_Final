@@ -38,24 +38,18 @@ ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPac
 vector<cDosimetrista*> generar_dosimetristas()
 {
 	vector <cDosimetrista*> listita;
-	cDosimetrista* dosimetrista1 = new cDosimetrista("juan", "perez", "23145672");
-	cDosimetrista* dosimetrista2 = new cDosimetrista("carlos", "gimenez", "34213235");
-	cDosimetrista* dosimetrista3 = new cDosimetrista("susana", "estebaniez", "232445554");
-	listita.push_back(dosimetrista1);
-	listita.push_back(dosimetrista2);
-	listita.push_back(dosimetrista3);
+	listita.push_back(new cDosimetrista("juan", "perez", "23145672"));
+	listita.push_back(new cDosimetrista("carlos", "gimenez", "34213235"));
+	listita.push_back(new cDosimetrista("susana", "estebaniez", "232445554"));
 	return listita;
 }
 
 vector<cOncologo*> generar_oncologos()
 {
 	vector <cOncologo*> listita;
-	cOncologo* oncologo1 = new cOncologo("manuel", "belgrano", "34169700");
-	cOncologo* oncologo2 = new cOncologo("mercedes", "sarmiento", "21800900");
-	cOncologo* oncologo3 = new cOncologo("pedro", "argento", "23423564");
-	listita.push_back(oncologo1);
-	listita.push_back(oncologo2);
-	listita.push_back(oncologo3);
+	listita.push_back(new cOncologo("pedro", "argento", "23423564"));
+	listita.push_back(new cOncologo("mercedes", "sarmiento", "21800900"));
+	listita.push_back(new cOncologo("manuel", "belgrano", "34169700"));
 	return listita;
 }
 
@@ -106,6 +100,77 @@ vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro)
 		}
 	}
 	return pacientesEncontrados;
+}
+
+void simular_hospital(cCentroRadioterapia & miCentro)
+{
+	int i;
+	for (i = 0; i < miCentro.lista_pacientes.size(); i++)	//for que recorre la lista de pacientes
+	{
+		if (!(miCentro[i]->get_lista_tumores().empty()) && 
+			(miCentro[i]->get_ficha()->get_estado() == no_tratado || miCentro[i]->get_ficha()->get_estado() == en_tratamiento))
+		{
+			miCentro[i]->get_ficha()->set_estado(en_tratamiento);
+
+			do {
+				simular_sesion(miCentro[i]);
+
+
+			} while (!(miCentro[i]->get_ficha()->get_radiacion_acum() >= miCentro[i]->get_dosis_max() ||
+				radmaximatumor(miCentro[i]->get_lista_tumores())));
+
+			for (int p = 0; p < miCentro.lista_oncologos.size(); p++)
+			{
+				if (miCentro[i]->get_ficha()->get_DNI_oncologo() == miCentro.lista_oncologos[p]->get_DNI())		//busco al oncologo que le corresponde al paciente
+					miCentro.lista_oncologos[p]->evaluar_paciente(miCentro[i]);		//evaluo al paciente
+			}
+		}	
+	}
+}
+
+void simular_sesion(cPaciente* pacientito) {
+
+	int i = 0;
+	for (int i = 0; i < pacientito->get_lista_tumores().size(); i++) {
+
+		pacientito->get_lista_tumores()[i]->set_radiacion_acum(pacientito->get_lista_tumores()[i]->get_tratamiento()->get_dosis_sesion());
+		if (pacientito->get_lista_tumores()[i]->get_mejoria() < 100) {
+			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 4);
+		}
+
+	}
+	vector<cTumor*>tumorcito = pacientito->get_lista_tumores();
+
+	float radiacionpacientito = 0;
+
+	for (i = 0; i < tumorcito.size(); i++) {
+
+		if (dynamic_cast<cBraquiterapia*>(tumorcito[i]->get_tratamiento()) != nullptr)
+			radiacionpacientito += tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6;
+		else if (dynamic_cast<cRadHazExterno*>(tumorcito[i]->get_tratamiento()) != nullptr)
+			radiacionpacientito += tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.3;
+		else if (dynamic_cast<cRadSistemica*>(tumorcito[i]->get_tratamiento()) != nullptr)
+			radiacionpacientito += tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.1;
+	}
+
+	pacientito->get_ficha()->set_radiacion_acum(radiacionpacientito);
+}
+
+bool radmaximatumor(vector<cTumor*> tumores) {
+	bool flag = false;
+	if (tumores.size() == 0) {
+		flag = true;
+	}
+
+	else
+	for (int i = 0; i < tumores.size(); i++) {
+
+		if (tumores[i]->get_radiacion_acum() >= tumores[i]->get_tratamiento()->get_dosis_totaltumor()) {
+			flag = true;
+		}
+
+	}
+	return flag;
 }
 
 /*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)

@@ -89,7 +89,7 @@ void cOncologo::evaluar_paciente(cPaciente* p){
 
 
 	for (int i = 0; i < p->get_lista_tumores().size(); i++) {
-		if (p->get_lista_tumores()[i]->get_mejoria() == 1) {
+		if (p->get_lista_tumores()[i]->get_mejoria() >= 100) {
 			*p - (p->get_lista_tumores()[i]);
 		}
 	}

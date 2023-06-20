@@ -11,12 +11,11 @@ private:
 	string DNI_oncologo;
 	string DNI_dosimetrista;
 	eEstado estado;
-	unsigned int radiacion_max;
-	unsigned int radiacion_acum;
+	float radiacion_acum;
 
 public:
 	cFicha();
-	cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado);
+	cFicha(time_t fecha, float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado);
 	~cFicha();
 
 	time_t get_fecha();
@@ -28,7 +27,7 @@ public:
 	void set_DNI_oncologo(string DNI_oncologo);
 	void set_DNI_dosimetrista(string DNI_dosimetrista);
 	void set_estado(eEstado estado);
-	void set_radiacion_acum(unsigned int rad_acum);
+	void set_radiacion_acum(float rad_acum);
 
 	string to_string ();
 	friend ostream & operator<<(ostream& out, cFicha& miFicha);

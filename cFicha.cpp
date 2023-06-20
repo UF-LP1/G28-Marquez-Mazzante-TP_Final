@@ -9,7 +9,7 @@ cFicha::cFicha()
 	this->radiacion_acum = 0;
 }
 
-cFicha::cFicha(time_t fecha, unsigned int radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
+cFicha::cFicha(time_t fecha, float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
 {
 	this->fecha = fecha;
 	this->radiacion_acum = radiacion_acum;
@@ -70,10 +70,9 @@ void cFicha::set_estado(eEstado estado)
 	return;
 }
 
-void cFicha::set_radiacion_acum(unsigned int rad_acum)
+void cFicha::set_radiacion_acum(float rad_acum)
 {
 	this->radiacion_acum += rad_acum;
-	return;
 }
 
 string cFicha::to_string()

@@ -18,10 +18,10 @@ int main()
 	miCentro - (miCentro.get_lista_dosimetristas()[1]);
 	miCentro - (miCentro.get_lista_oncologos()[0]);
 
+	srand(time(NULL));
+
 	asignar_oncologos(listaPacientes, miCentro.get_lista_oncologos());
 	asignar_dosimetristas(listaPacientes, miCentro.get_lista_dosimetristas());
-
-
 
 	for (cPaciente* pacientito : miCentro.get_lista_pacientes())
 	{
@@ -64,15 +64,14 @@ int main()
 		}
 	}
 
-	cPaciente* pacaux1 = miCentro[5];		//me guardo a la paciente guadalupe
-	miCentro - (miCentro[5]);				//elimino de mi centro a la paciente guadalupe
-	miCentro + pacaux1;						//agrego a mi centro a la paciente guadalupe
+	//cPaciente* pacaux1 = miCentro[5];		
+	//miCentro - (miCentro[5]);				
+	//miCentro + pacaux1;						
 
-	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)	
-	{
-		cout << endl << *miCentro[i] << endl;	
-	}
-
+	//for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
+	//{
+	//	cout << endl << *miCentro[i] << endl;
+	//}
 	
 	bool arg1 = (*miCentro[1] == "34169700");	//hago sobrecarga para ver si el paciente 2 esta atendido por el oncologo con DNI 34169700
 	cout << "El paciente 2 esta atendido por el oncologo con DNI 34169700 ? (0: no, 1: si) " << arg1 << endl;
@@ -81,7 +80,29 @@ int main()
 	bool arg3 = (*miCentro[1] == "23423564");
 	cout << "El paciente 2 esta atendido por el oncologo con DNI 23423564 ? (0: no, 1: si) " << arg3 << endl;
 
-	delete pacaux1;
+	simular_hospital(miCentro);
+
+	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
+	{
+		cout << endl << *miCentro[i] << endl;
+	}
+
+
+	for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
+	{
+		if (miCentro.get_lista_dosimetristas()[i] != nullptr)
+			delete miCentro.get_lista_dosimetristas()[i];
+	}
+	miCentro.get_lista_dosimetristas().clear();
+
+	for (int i = 0; i < miCentro.get_lista_oncologos().size(); i++)
+	{
+		if (miCentro.get_lista_oncologos()[i] != nullptr)
+			delete miCentro.get_lista_oncologos()[i];
+	}
+	miCentro.get_lista_oncologos().clear();
+
+
 	return 0;
 }
 
