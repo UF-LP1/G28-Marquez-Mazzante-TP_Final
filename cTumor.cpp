@@ -28,10 +28,10 @@ unsigned int cTumor::get_radiacion_acum()
 	return this->radiacion_acum;
 }
 
-unsigned int cTumor::get_radiacion_max()
-{
-	return this->radiacion_max;
-}
+//unsigned int cTumor::get_radiacion_max()
+//{
+//	return this->radiacion_max;
+//}
 
 cTerapia* cTumor::get_tratamiento()
 {
@@ -65,4 +65,11 @@ void cTumor::set_tratamiento(cTerapia* tratamiento)
 float cTumor::get_mejoria()
 {
 	return this->mejoria;
+}
+
+string cTumor::to_string()
+{
+	stringstream var;
+	var << "TAMANIO: " << this->get_tamanio() << " - UBICACION: " << this->get_ubicacion() << " - RAD_ACUMULADA: " << this->get_radiacion_acum();
+	return var.str();
 }

@@ -36,16 +36,6 @@ vector<cTumor*> cPaciente::get_lista_tumores()
     return this->lista_tumores;
 }
 
-void cPaciente::set_lista_tumores(vector<cTumor*> l)
-{
-    this->lista_tumores = l;
-}
-
-void cPaciente::set_dosis_max(unsigned int dosis_max)
-{
-    this->dosis_max = dosis_max;
-}
-
 cFicha* cPaciente::get_ficha()
 {
     return this->ficha_paciente;
@@ -54,6 +44,16 @@ cFicha* cPaciente::get_ficha()
 unsigned int cPaciente::get_dosis_max()
 {
     return this->dosis_max;
+}
+
+void cPaciente::set_lista_tumores(vector<cTumor*> l)
+{
+    this->lista_tumores = l;
+}
+
+void cPaciente::set_dosis_max(unsigned int dosis_max)
+{
+    this->dosis_max = dosis_max;
 }
 
 void cPaciente::set_ficha(cFicha* fichita)
@@ -95,9 +95,21 @@ bool cPaciente::operator==(string DNI_onc)
     return flag;
 }
 
-/*bool cPaciente::set_concurrir(bool c)
+string cPaciente::to_string()
 {
-    this->concurrir = c;
-    return c;
+    stringstream var;
+    var << "NOMBRE: " << this->nombre << " - APELLIDO: " << this->apellido << " - DNI: " << this->DNI << endl;
+    var << "~~~~FICHA~~~~" << this->get_ficha()->to_string();
+
+    for (int i = 0; i < this->lista_tumores.size(); i++)
+    {
+        var << endl << "~~~~TUMOR~~~~" << this->lista_tumores[i]->to_string();
+    }
+    return var.str();
 }
-*/
+
+ostream& operator<<(ostream& out, cPaciente& pacientito)
+{
+    out << pacientito.to_string();
+    return out;
+}

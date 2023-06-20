@@ -63,6 +63,11 @@ vector<cOncologo*> cCentroRadioterapia::get_lista_oncologos()
 	return this->lista_oncologos;
 }
 
+list<cPaciente*> cCentroRadioterapia::get_lista_pacientes()
+{
+	return this->lista_pacientes;
+}
+
 cPaciente* cCentroRadioterapia::operator[](int pos)
 {
 	if (pos > this->lista_pacientes.size() || pos < 0)

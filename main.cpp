@@ -18,19 +18,19 @@ int main()
 	miCentro - (miCentro.get_lista_dosimetristas()[1]);
 	miCentro - (miCentro.get_lista_oncologos()[0]);
 
-	asignar_oncologos(listaPacientes, lista_oncologos);
-	asignar_dosimetristas(listaPacientes, lista_dosimetristas);
+	asignar_oncologos(listaPacientes, miCentro.get_lista_oncologos());
+	asignar_dosimetristas(listaPacientes, miCentro.get_lista_dosimetristas());
 
 
 
-	for (cPaciente* pacientito : listaPacientes)
+	for (cPaciente* pacientito : miCentro.get_lista_pacientes())
 	{
-		for (cOncologo* oncologocito : lista_oncologos)
+		for (cOncologo* oncologocito : miCentro.get_lista_oncologos())
 		{
 			if (pacientito->get_ficha()->get_DNI_oncologo() == oncologocito->get_DNI())
 				oncologocito->diagnosticar(pacientito);
 		}
-		for (cDosimetrista* dosimetristacito : lista_dosimetristas)
+		for (cDosimetrista* dosimetristacito : miCentro.get_lista_dosimetristas())
 		{
 			if (pacientito->get_ficha()->get_DNI_dosimtetirsta() == dosimetristacito->get_DNI())
 			{
@@ -38,12 +38,12 @@ int main()
 				try {
 					dosimetristacito->calcular_dosis_tot(pacientito);
 				}
-				catch (PacienteSinTumores & exe) {
+				catch (PacienteSinTumores& exe) {
 					cout << exe.what() << endl;
 				}
-			}		
+			}
 		}
-		for (cOncologo* oncologocito : lista_oncologos)
+		for (cOncologo* oncologocito : miCentro.get_lista_oncologos())
 		{
 			if (pacientito->get_ficha()->get_DNI_oncologo() == oncologocito->get_DNI())
 			{
@@ -64,14 +64,24 @@ int main()
 		}
 	}
 
-	cPaciente * pacaux1 = miCentro[5];		//me guardo a la paciente guadalupe
+	cPaciente* pacaux1 = miCentro[5];		//me guardo a la paciente guadalupe
 	miCentro - (miCentro[5]);				//elimino de mi centro a la paciente guadalupe
 	miCentro + pacaux1;						//agrego a mi centro a la paciente guadalupe
-	
-	*miCentro[1] == "34169700";	//hago sobrecarga para ver si el paciente 2 esta atendido por el oncologo con DNI 34169700
-	*miCentro[1] == "21800900";
-	*miCentro[1] == "23423564";
 
+	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)	
+	{
+		cout << endl << *miCentro[i] << endl;	
+	}
+
+	
+	bool arg1 = (*miCentro[1] == "34169700");	//hago sobrecarga para ver si el paciente 2 esta atendido por el oncologo con DNI 34169700
+	cout << "El paciente 2 esta atendido por el oncologo con DNI 34169700 ? (0: no, 1: si) " << arg1 << endl;
+	bool arg2 = (*miCentro[1] == "21800900");
+	cout << "El paciente 2 esta atendido por el oncologo con DNI 21800900 ? (0: no, 1: si) " << arg2 << endl;
+	bool arg3 = (*miCentro[1] == "23423564");
+	cout << "El paciente 2 esta atendido por el oncologo con DNI 23423564 ? (0: no, 1: si) " << arg3 << endl;
+
+	delete pacaux1;
 	return 0;
 }
 

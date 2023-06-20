@@ -79,7 +79,7 @@ void cFicha::set_radiacion_acum(unsigned int rad_acum)
 string cFicha::to_string()
 {
 	stringstream salida;
-	salida << "Fecha: " << fecha << "- DNI oncologo a cargo: " << DNI_oncologo << "- DNI dosimetrista a cargo: " << DNI_dosimetrista << "- Estado del paciente: " << estado;
+	salida << "FECHA: " << fecha << " - DNI_ONCOLOGO: " << DNI_oncologo << " - DNI_ DOSIMETRISTA: " << DNI_dosimetrista << " - ESTADO: " << estado;
 	return salida.str();
 }
 

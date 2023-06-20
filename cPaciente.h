@@ -44,6 +44,8 @@ public:
 	void operator+(cTumor* tumorcito);
 	void operator-(cTumor* tumorcito);
 	bool operator == (string DNI_onc);
+	string to_string();
+	friend ostream& operator << (ostream& out, cPaciente& pacientito);
 };
 
 #endif // !_H_cPaciente_

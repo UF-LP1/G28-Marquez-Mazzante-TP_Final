@@ -101,7 +101,7 @@ vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro)
 	{
 		for (int i = 0; i < pacienteaux->get_lista_tumores().size(); i++)
 		{
-			if ((float)pacienteaux->get_lista_tumores()[i]->get_radiacion_acum() >= 0, 95 * pacienteaux->get_lista_tumores()[i]->get_radiacion_max())
+			if ((float)pacienteaux->get_lista_tumores()[i]->get_radiacion_acum() >= 0, 95 * pacienteaux->get_lista_tumores()[i]->get_tratamiento()->get_dosis_totaltumor())
 				pacientesEncontrados.push_back(pacienteaux);
 		}
 	}
