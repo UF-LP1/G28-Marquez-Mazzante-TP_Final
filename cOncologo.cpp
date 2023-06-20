@@ -5,15 +5,17 @@
 
 
 cOncologo::cOncologo(string nombre, string apellido, string DNI)
-	:nombre(nombre), apellido(apellido), DNI(DNI)
 {
+	this->DNI = DNI;
+	this->nombre = nombre;
+	this->apellido = apellido;
 }
 
 cOncologo::~cOncologo()
 {
 }
 
-const string cOncologo::get_DNI()
+string cOncologo::get_DNI()
 {
 	return this->DNI;
 }

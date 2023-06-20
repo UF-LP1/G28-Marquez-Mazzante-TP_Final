@@ -18,7 +18,7 @@ int main()
 	miCentro - (miCentro.get_lista_dosimetristas()[1]);
 	miCentro - (miCentro.get_lista_oncologos()[0]);
 
-	srand(time(NULL));
+//	srand(time(NULL));
 
 	asignar_oncologos(listaPacientes, miCentro.get_lista_oncologos());
 	asignar_dosimetristas(listaPacientes, miCentro.get_lista_dosimetristas());
@@ -27,12 +27,12 @@ int main()
 	{
 		for (cOncologo* oncologocito : miCentro.get_lista_oncologos())
 		{
-			if (pacientito->get_ficha()->get_DNI_oncologo() == oncologocito->get_DNI())
+			if ((pacientito->get_ficha()->get_DNI_oncologo()) == (oncologocito->get_DNI()))
 				oncologocito->diagnosticar(pacientito);
 		}
 		for (cDosimetrista* dosimetristacito : miCentro.get_lista_dosimetristas())
 		{
-			if (pacientito->get_ficha()->get_DNI_dosimtetirsta() == dosimetristacito->get_DNI())
+			if ((pacientito->get_ficha()->get_DNI_dosimtetirsta()) == (dosimetristacito->get_DNI()))
 			{
 				dosimetristacito->elegir_tipo_terapia(pacientito);
 				try {
