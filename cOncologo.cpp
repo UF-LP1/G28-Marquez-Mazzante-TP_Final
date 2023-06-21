@@ -51,7 +51,7 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 				terapiaAux->set_dosis_sesion(3);
 			}
 			else if (p->get_salud() > 0.6) {
-				terapiaAux[i].set_dosis_sesion(2);
+				terapiaAux->set_dosis_sesion(2);
 			}
 		}
 		if (dynamic_cast<cRadHazExterno*>(terapiaAux) != nullptr) {
