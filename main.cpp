@@ -17,6 +17,7 @@ int main()
 
 	miCentro - (miCentro.get_lista_dosimetristas()[1]);
 	miCentro - (miCentro.get_lista_oncologos()[0]);
+	miCentro - (miCentro[5]);
 
 //	srand(time(NULL));
 
@@ -63,10 +64,8 @@ int main()
 
 		}
 	}
-
-	//cPaciente* pacaux1 = miCentro[5];		
-	//miCentro - (miCentro[5]);				
-	//miCentro + pacaux1;						
+		
+										
 
 	//for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
 	//{
@@ -102,6 +101,12 @@ int main()
 	}
 	miCentro.get_lista_oncologos().clear();
 
+	/*for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
+	{
+		if (miCentro[i] != nullptr)
+			delete miCentro[i];
+	}
+	miCentro.get_lista_pacientes().clear();*/
 
 	return 0;
 }

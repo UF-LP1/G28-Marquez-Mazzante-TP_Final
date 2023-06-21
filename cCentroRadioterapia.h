@@ -15,7 +15,7 @@ public:
 	cCentroRadioterapia(string nombre_centro, string direccion);
 	cCentroRadioterapia(string nombre_centro, string direccion, list<cPaciente*> lista_pacientes, vector<cDosimetrista*>lista_dosimetrista, vector<cOncologo*>lista_oncologos);
 	~cCentroRadioterapia();
-	bool contactar_paciente(cPaciente p);
+	void contactar_paciente(cPaciente *p);
 
 	vector <cDosimetrista*> get_lista_dosimetristas();
 	vector <cOncologo*> get_lista_oncologos();

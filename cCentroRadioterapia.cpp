@@ -33,24 +33,29 @@ cCentroRadioterapia::~cCentroRadioterapia()
 	}*/
 }
 
-bool cCentroRadioterapia::contactar_paciente(cPaciente p)
+void cCentroRadioterapia::contactar_paciente(cPaciente *p)
 {
-	int respuesta;
-	bool contestar = false;
-	//srand(time(NULL));
+	{
+		//time_t fechalimite = time(0) + 5259492;  //la fecha limite seria dos meses a partir de hoy.
 
-	respuesta = rand() % 2;
+		//if (p->get_ficha()->get_fecha() > fechalimite) {
+		//}
 
-	if (respuesta == 0) {
-		//p.set_concurrir(contestar);
+		int respuesta;
+
+		//srand(time(NULL));
+
+		respuesta = rand() % 2;
+
+		if (respuesta == 0) {				//no quiere volver
+			p->get_ficha()->set_estado(no_tratado);
+		}
+
+		else {
+			p->get_ficha()->set_estado(en_tratamiento); //quiere volver
+		}
+
 	}
-
-	else {
-		contestar = true;
-		//p.set_concurrir(contestar);
-	}
-
-	return contestar;
 }
 
 vector<cDosimetrista*> cCentroRadioterapia::get_lista_dosimetristas()
@@ -99,27 +104,54 @@ void cCentroRadioterapia::operator+(cOncologo* o)
 
 void cCentroRadioterapia::operator-(cPaciente * p)
 {
-	this->lista_pacientes.remove(p);
+	if (p == nullptr)
+		return;
+	bool exist = (find(this->lista_pacientes.begin(), lista_pacientes.end(), p) != this->lista_pacientes.end());
+
+	if(exist)
+		this->lista_pacientes.remove(p);
+	delete p;
 }
 
 void cCentroRadioterapia::operator-(cDosimetrista* d)
 {
-	int cont = 0;
-	for (int i = 0; i < this->lista_dosimetristas.size(); i++)
+	//int cont = 0;
+	//for (int i = 0; i < this->lista_dosimetristas.size(); i++)
+	//{
+	//	if (this->lista_dosimetristas[i] == d)
+	//		cont = i;
+	//}
+	//this->lista_dosimetristas.erase(this->lista_dosimetristas.begin() + cont);
+	bool found = false;
+	for (int i = 0; i < this->lista_dosimetristas.size() && !found; i++)
 	{
 		if (this->lista_dosimetristas[i] == d)
-			cont = i;
+		{
+			found = true;
+			this->lista_dosimetristas.erase(this->lista_dosimetristas.begin() + i);
+			delete d;
+		}
 	}
-	this->lista_dosimetristas.erase(this->lista_dosimetristas.begin() + cont);
 }
 
 void cCentroRadioterapia::operator-(cOncologo* o)
 {
-	int cont = 0;
-	for (int i = 0; i < this->lista_oncologos.size(); i++)
+	//int cont = 0;
+	//for (int i = 0; i < this->lista_oncologos.size(); i++)
+	//{
+	//	if (this->lista_oncologos[i] == o)
+	//		cont = i;
+	//}
+	//this->lista_oncologos.erase(this->lista_oncologos.begin() + cont);
+
+	bool found = false;
+	for (int i = 0; i < this->lista_oncologos.size() && !found; i++)
 	{
 		if (this->lista_oncologos[i] == o)
-			cont = i;
+		{
+			found = true;
+			this->lista_oncologos.erase(this->lista_oncologos.begin() + i);
+			delete o;
+		}
 	}
-	this->lista_oncologos.erase(this->lista_oncologos.begin() + cont);
 }
