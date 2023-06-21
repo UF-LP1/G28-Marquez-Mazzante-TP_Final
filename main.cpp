@@ -17,7 +17,14 @@ int main()
 
 	miCentro - (miCentro.get_lista_dosimetristas()[1]);
 	miCentro - (miCentro.get_lista_oncologos()[0]);
-	miCentro - (miCentro[5]);
+
+	try {
+		//miCentro - (miCentro[5]);
+	}
+	catch (exception* exe)
+	{
+		cout << exe->what() << endl;
+	}
 
 //	srand(time(NULL));
 
@@ -61,52 +68,69 @@ int main()
 					cout << exe.what() << endl;
 				}
 			}
-
 		}
 	}
-		
-										
-
 	//for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
 	//{
 	//	cout << endl << *miCentro[i] << endl;
 	//}
 	
-	bool arg1 = (*miCentro[1] == "34169700");	//hago sobrecarga para ver si el paciente 2 esta atendido por el oncologo con DNI 34169700
-	cout << "El paciente 2 esta atendido por el oncologo con DNI 34169700 ? (0: no, 1: si) " << arg1 << endl;
-	bool arg2 = (*miCentro[1] == "21800900");
-	cout << "El paciente 2 esta atendido por el oncologo con DNI 21800900 ? (0: no, 1: si) " << arg2 << endl;
-	bool arg3 = (*miCentro[1] == "23423564");
-	cout << "El paciente 2 esta atendido por el oncologo con DNI 23423564 ? (0: no, 1: si) " << arg3 << endl;
+	try {
+		bool arg1 = (*miCentro[1] == "34169700");	//hago sobrecarga para ver si el paciente 2 esta atendido por el oncologo con DNI 34169700
+		cout << "El paciente 2 esta atendido por el oncologo con DNI 34169700 ? (0: no, 1: si) " << arg1 << endl;
+		bool arg2 = (*miCentro[1] == "21800900");
+		cout << "El paciente 2 esta atendido por el oncologo con DNI 21800900 ? (0: no, 1: si) " << arg2 << endl;
+		bool arg3 = (*miCentro[1] == "23423564");
+		cout << "El paciente 2 esta atendido por el oncologo con DNI 23423564 ? (0: no, 1: si) " << arg3 << endl;
+	}
+	catch (exception* exe)
+	{
+		cout << exe->what() << endl;
+	}
 
 	simular_hospital(miCentro);
 
 	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
 	{
-		cout << endl << *miCentro[i] << endl;
+		try {
+			cout << endl << *miCentro[i] << endl;
+		}
+		catch (exception* exe)
+		{
+			cout << exe->what() << endl;
+		}
 	}
-
 
 	for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
 	{
 		if (miCentro.get_lista_dosimetristas()[i] != nullptr)
+		{
 			delete miCentro.get_lista_dosimetristas()[i];
+			miCentro.get_lista_dosimetristas()[i] = nullptr;
+		}
+
 	}
 	miCentro.get_lista_dosimetristas().clear();
 
 	for (int i = 0; i < miCentro.get_lista_oncologos().size(); i++)
 	{
 		if (miCentro.get_lista_oncologos()[i] != nullptr)
+		{
 			delete miCentro.get_lista_oncologos()[i];
+			miCentro.get_lista_oncologos()[i] = nullptr;
+		}
 	}
 	miCentro.get_lista_oncologos().clear();
 
-	/*for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
+	for (cPaciente* aux : miCentro.get_lista_pacientes())
 	{
-		if (miCentro[i] != nullptr)
-			delete miCentro[i];
+		if (aux != nullptr)
+		{
+			delete aux;
+			aux = nullptr;
+		}
 	}
-	miCentro.get_lista_pacientes().clear();*/
+	miCentro.get_lista_pacientes().clear();
 
 	return 0;
 }

@@ -34,21 +34,21 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 		if (dynamic_cast<cBraquiterapia*>(terapiaAux) != nullptr) {
 
 			if (p->get_salud() <= 0.3){
-				terapiaAux[i].set_dosis_sesion(8);
+				terapiaAux->set_dosis_sesion(8);
 			}
 			else if (p->get_salud() > 0.3 && p->get_salud() <= 0.6) {
-				terapiaAux[i].set_dosis_sesion(7);
+				terapiaAux->set_dosis_sesion(7);
 			}
 			else if (p->get_salud() > 0.6) {
-				terapiaAux[i].set_dosis_sesion(6);
+				terapiaAux->set_dosis_sesion(6);
 			}
 		}
 		if (dynamic_cast<cRadSistemica*>(terapiaAux) != nullptr) {
 			if (p->get_salud() <= 0.3) {
-				terapiaAux[i].set_dosis_sesion(4);
+				terapiaAux->set_dosis_sesion(4);
 			}
 			else if (p->get_salud() > 0.3 && p->get_salud() <= 0.6) {
-				terapiaAux[i].set_dosis_sesion(3);
+				terapiaAux->set_dosis_sesion(3);
 			}
 			else if (p->get_salud() > 0.6) {
 				terapiaAux[i].set_dosis_sesion(2);
@@ -56,13 +56,13 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 		}
 		if (dynamic_cast<cRadHazExterno*>(terapiaAux) != nullptr) {
 			if (p->get_salud() <= 0.3) {
-				terapiaAux[i].set_dosis_sesion(2);
+				terapiaAux->set_dosis_sesion(2);
 			}
 			else if (p->get_salud() > 0.3 && p->get_salud() <= 0.6) {
-				terapiaAux[i].set_dosis_sesion(1);
+				terapiaAux->set_dosis_sesion(1);
 			}
 			else if (p->get_salud() > 0.6) {
-				terapiaAux[i].set_dosis_sesion(1);
+				terapiaAux->set_dosis_sesion(1);
 			}
 		}
 	}
