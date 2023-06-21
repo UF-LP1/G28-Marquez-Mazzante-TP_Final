@@ -9,8 +9,7 @@ cFicha::cFicha()
 	this->radiacion_acum = 0;
 }
 
-cFicha::cFicha(time_t fecha, float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado)
-{
+cFicha::cFicha(float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado, time_t fecha){
 	this->fecha = fecha;
 	this->radiacion_acum = radiacion_acum;
 	this->DNI_oncologo = DNI_oncologo;

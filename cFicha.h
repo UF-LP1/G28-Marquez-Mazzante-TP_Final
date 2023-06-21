@@ -15,7 +15,7 @@ private:
 
 public:
 	cFicha();
-	cFicha(time_t fecha, float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado);
+	cFicha (float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado, time_t fecha=time(0));
 	~cFicha();
 
 	time_t get_fecha();
