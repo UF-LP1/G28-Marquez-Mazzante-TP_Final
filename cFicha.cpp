@@ -2,7 +2,7 @@
 
 cFicha::cFicha()
 {
-	this->fecha = time(0);
+	this->fecha = 0;
 	this->DNI_oncologo = "000000000";
 	this->DNI_dosimetrista = "000000000";
 	this->estado = no_tratado;
@@ -77,7 +77,7 @@ void cFicha::set_radiacion_acum(float rad_acum)
 string cFicha::to_string()
 {
 	stringstream salida;
-	salida << "FECHA: " << fecha << " - DNI_ONCOLOGO: " << DNI_oncologo << " - DNI_ DOSIMETRISTA: " << DNI_dosimetrista << " - ESTADO: " << estado;
+	salida << "FECHA: " << convertir_fecha(this->fecha) << " - DNI_ONCOLOGO: " << this->DNI_oncologo << " - DNI_ DOSIMETRISTA: " << this->DNI_dosimetrista << " - ESTADO: " << this->estado;
 	return salida.str();
 }
 
@@ -85,4 +85,16 @@ ostream& operator<<(ostream& out, cFicha& miFicha)
 {
 	out << miFicha.to_string();
 	return out;
+}
+
+string convertir_fecha(time_t tiempo)
+{
+	tm tiempito;
+	localtime_s(&tiempito, &tiempo);
+	int dia = tiempito.tm_mday;
+	int mes = tiempito.tm_mon + 1;
+	int anio = tiempito.tm_year + 1900;
+	stringstream fechita;
+	fechita << dia << "/" << mes << "/" << anio;
+	return fechita.str();
 }

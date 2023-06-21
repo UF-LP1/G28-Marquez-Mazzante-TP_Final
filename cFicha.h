@@ -15,7 +15,7 @@ private:
 
 public:
 	cFicha();
-	cFicha (float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado, time_t fecha=time(0));
+	cFicha (float radiacion_acum, string DNI_oncologo, string DNI_dosimetrista, eEstado estado, time_t fecha=0);
 	~cFicha();
 
 	time_t get_fecha();
@@ -33,3 +33,4 @@ public:
 	friend ostream & operator<<(ostream& out, cFicha& miFicha);
 };
 
+string convertir_fecha(time_t tiempo);

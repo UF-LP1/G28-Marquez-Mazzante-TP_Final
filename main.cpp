@@ -101,6 +101,8 @@ int main()
 		}
 	}
 
+
+	//~~~~~~~~~~~aca hacemos los deletes correspondientes~~~~~~~~~~~~~~~~~~~~~//
 	for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
 	{
 		if (miCentro.get_lista_dosimetristas()[i] != nullptr)
