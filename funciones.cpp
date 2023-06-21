@@ -154,6 +154,7 @@ void simular_sesion(cPaciente* pacientito) {
 	}
 
 	pacientito->get_ficha()->set_radiacion_acum(radiacionpacientito);
+	pacientito->get_ficha()->set_fecha(time(0));
 }
 
 bool radmaximatumor(vector<cTumor*> tumores) {
