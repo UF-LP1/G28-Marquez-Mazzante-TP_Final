@@ -76,12 +76,26 @@ void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrist
 vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, eUbicacion ubitum, cCentroRadioterapia &micentro)
 {
 	vector<cPaciente*> pacientesEncontrados;
+
 	for (cPaciente* pacienteaux : micentro.get_lista_pacientes()) {
 
 		for (int i = 0; i < pacienteaux->get_lista_tumores().size(); i++)
 		{
-			if (pacienteaux->get_lista_tumores()[i]->get_ubicacion() == ubitum && pacienteaux->get_lista_tumores()[i]->get_tratamiento() == terapia) {
-				pacientesEncontrados.push_back(pacienteaux);
+			
+			if (pacienteaux->get_lista_tumores()[i]->get_ubicacion() == ubitum) {
+
+				if ((dynamic_cast<cBraquiterapia*>(pacienteaux->get_lista_tumores()[i]->get_tratamiento()) != nullptr)){
+
+					pacientesEncontrados.push_back(pacienteaux);
+				}
+				if ((dynamic_cast<cRadHazExterno*>(pacienteaux->get_lista_tumores()[i]->get_tratamiento()) != nullptr)) {
+
+					pacientesEncontrados.push_back(pacienteaux);
+				}
+				if ((dynamic_cast<cRadSistemica*>(pacienteaux->get_lista_tumores()[i]->get_tratamiento()) != nullptr)) {
+
+					pacientesEncontrados.push_back(pacienteaux);
+				}
 			}
 		}
 	}
