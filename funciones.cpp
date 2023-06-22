@@ -154,11 +154,11 @@ void simular_sesion(cPaciente* pacientito) {
 	for (i = 0; i < tumorcito.size(); i++) {
 
 		if (dynamic_cast<cBraquiterapia*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6;
+			radiacionpacientito += (float)tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6;
 		else if (dynamic_cast<cRadHazExterno*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.3;
+			radiacionpacientito += (float)tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.3;
 		else if (dynamic_cast<cRadSistemica*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.1;
+			radiacionpacientito += (float)tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.1;
 	}
 
 	pacientito->get_ficha()->set_radiacion_acum(radiacionpacientito);
