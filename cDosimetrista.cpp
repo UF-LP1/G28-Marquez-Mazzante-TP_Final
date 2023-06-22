@@ -14,7 +14,7 @@ const string cDosimetrista::get_DNI()
 	return this->DNI;
 }
 
-void cDosimetrista::calcular_dosis_tot(cPaciente* p)
+void cDosimetrista::calcular_dosis_tot(cPaciente* p)				//calcula las dosis totales que recibiran el paciente y el tumor a lo largo de la terapia
 {
 	if (p->get_lista_tumores().size() == 0) throw PacienteSinTumores();
 	unsigned int dosismax;
@@ -34,7 +34,7 @@ void cDosimetrista::calcular_dosis_tot(cPaciente* p)
 		}
 	}
 	if (p->get_lista_tumores().size() == 1) { 
-		dosismax = p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_totalpaciente();
+		dosismax = p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_totalpaciente();			//me fijo cual es la mas chica de las dos para pasarle esa al set
 	}
 	else if (p->get_lista_tumores()[0]->get_tratamiento()->get_dosis_totalpaciente() > p->get_lista_tumores()[1]->get_tratamiento()->get_dosis_totalpaciente()) {
 		dosismax = p->get_lista_tumores()[1]->get_tratamiento()->get_dosis_totalpaciente();
@@ -45,7 +45,7 @@ void cDosimetrista::calcular_dosis_tot(cPaciente* p)
 }
 
 
-void cDosimetrista::elegir_tipo_terapia(cPaciente* p)
+void cDosimetrista::elegir_tipo_terapia(cPaciente* p)			//asigno segun la ubicacion el tipo de terapia a recibir
 {
 
 	for (int i = 0; i < p->get_lista_tumores().size(); i++) {

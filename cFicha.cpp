@@ -87,7 +87,7 @@ ostream& operator<<(ostream& out, cFicha& miFicha)
 	return out;
 }
 
-string convertir_fecha(time_t tiempo)
+string convertir_fecha(time_t tiempo) //convierto la fecha de formato time_t a int.
 {
 	tm tiempito;
 	localtime_s(&tiempito, &tiempo);

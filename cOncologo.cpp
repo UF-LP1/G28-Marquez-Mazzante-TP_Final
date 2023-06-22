@@ -20,7 +20,7 @@ string cOncologo::get_DNI()
 	return this->DNI;
 }
 
-void cOncologo::calcular_dosis_sesion(cPaciente* p)
+void cOncologo::calcular_dosis_sesion(cPaciente* p)			//calcula la dosis por sesion que recibira el paciente basado en su estado de salud actual
 {
 	if(p->get_lista_tumores().size() == 0)
 		throw PacienteSinTumores();
@@ -67,10 +67,10 @@ void cOncologo::calcular_dosis_sesion(cPaciente* p)
 		}
 	}
 	
-	return ;
+	return;
 }
 
-void cOncologo::calcular_frec_semanal(cPaciente* p)
+void cOncologo::calcular_frec_semanal(cPaciente* p)		//calcula la frecuencia semanal en base a la salud, cuanto mas baja sea, mas veces asistira
 {	
 	if (p->get_lista_tumores().size() == 0)
 		throw PacienteSinTumores();
@@ -87,10 +87,10 @@ void cOncologo::calcular_frec_semanal(cPaciente* p)
 	return;
 }
 
-void cOncologo::evaluar_paciente(cPaciente* p){
-
-
-	for (int i = 0; i < p->get_lista_tumores().size(); i++) {
+void cOncologo::evaluar_paciente(cPaciente* p){			//evalua al paciente despues de sus sesiones. chequea la mejoria de los tumores, donde si uno ya supero
+														// el 100% de recuperacion, lo elimino de su lista de tumores, ademas es aca donde el paciente debe tomarse
+														//un tiempo debido a que su tumor alcanzo la radiacion maxima, entonces cambiamos el estado de la persona y el
+	for (int i = 0; i < p->get_lista_tumores().size(); i++) {  //tamanio del tumor dependiendo en la mejoria que alcanzo el mismo
 		if (p->get_lista_tumores()[i]->get_mejoria() >= 100) {
 			*p - (p->get_lista_tumores()[i]);
 		}
