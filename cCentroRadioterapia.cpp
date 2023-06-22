@@ -16,21 +16,21 @@ cCentroRadioterapia::cCentroRadioterapia(string nombre_centro, string direccion,
 
 cCentroRadioterapia::~cCentroRadioterapia()
 {
-	for (cPaciente* auxpac : this->lista_pacientes)
-	{
-		if (auxpac != nullptr)
-			delete auxpac;
-	}
-	for (cDosimetrista* auxdos : this->lista_dosimetristas)
-	{
-		if (auxdos != nullptr)
-			delete auxdos;
-	}
-	for (cOncologo* auxonc : this->lista_oncologos)
-	{
-		if (auxonc != nullptr)
-			delete auxonc;
-	}
+	//for (cPaciente* auxpac : this->lista_pacientes)
+	//{
+	//	if (auxpac != nullptr)
+	//		delete auxpac;
+	//}
+	//for (cDosimetrista* auxdos : this->lista_dosimetristas)
+	//{
+	//	if (auxdos != nullptr)
+	//		delete auxdos;
+	//}
+	//for (cOncologo* auxonc : this->lista_oncologos)
+	//{
+	//	if (auxonc != nullptr)
+	//		delete auxonc;
+	//}
 }
 
 void cCentroRadioterapia::contactar_paciente(cPaciente *p)

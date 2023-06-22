@@ -6,11 +6,12 @@ cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, unsigned int rad_acum = 0
 	this->ubicacion = ubicacion;
 	this->radiacion_acum = rad_acum;
 	this->tratamiento = tratamiento;
+	this->mejoria = (float)0.0;
 }
 
 cTumor::~cTumor()
 {
-	delete tratamiento;
+	//delete tratamiento;
 }
 
 eTamanio cTumor::get_tamanio()
@@ -70,6 +71,64 @@ void cTumor::set_mejoria(unsigned int m)
 string cTumor::to_string()
 {
 	stringstream var;
-	var << "TAMANIO: " << this->get_tamanio() << " - UBICACION: " << this->get_ubicacion() << " - RAD_ACUMULADA: " << this->get_radiacion_acum();
+	var << "TAMANIO: " << conv_tam(this->get_tamanio()) << " - UBICACION: " << conv_ubi(this->get_ubicacion()) << " - RAD_ACUMULADA: " << this->get_radiacion_acum();
 	return var.str();
+}
+
+string conv_tam(eTamanio tam)
+{
+	string auxi;
+	switch (tam)
+	{
+	case pequenio:
+		auxi = "pequenio";
+		break;
+	case mediano:
+		auxi = "mediano";
+		break;
+	case grande:
+		auxi = "grande";
+		break;
+	default:
+		break;
+	}
+	return auxi;
+}
+
+string conv_ubi(eUbicacion ubi)
+{
+	string auxi;
+	switch (ubi)
+	{
+	case cabeza:
+		auxi = "cabeza";
+		break;
+	case pulmon:
+		auxi = "pulmon";
+		break;
+	case cuello:
+		auxi = "cuello";
+		break;
+	case utero:
+		auxi = "utero";
+		break;
+	case ojo:
+		auxi = "ojo";
+		break;
+	case tiroides:
+		auxi = "tiroides";
+		break;
+	case prostata:
+		auxi = "prostata";
+		break;
+	case intestino:
+		auxi = "intestino";
+		break;
+	case mama:
+		auxi = "mama";
+		break;
+	default:
+		break;
+	}
+	return auxi;
 }

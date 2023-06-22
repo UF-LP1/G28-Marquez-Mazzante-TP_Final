@@ -1,11 +1,11 @@
-Nombre;Apellido;DNI;Tipo;Sangre;Telefono;Fecha_nacimiento;Salud
-Alma ; Marquez ; 45296117 ; AB+ ; 2324675707 ; 11/9/2003 ; 0.7
-Lorenzo ; Mazzante ; 44958354 ; A- ; 1169874522 ; 22/8/2023 ; 1
-Paula ; Pecker ; 45274188 ; B+ ; 5226987441 ; 16/4/2004 ; 0.2
-Agostina ; Nobo ; 45285127 ; 0+ ; 2236874985 ; 20/5/2004 ; 0.9
-Valentina ; Mao ; 44789632 ; A+ ; 2324698514 ; 7/6/2004 ; 0.3
-Guadalupe ; Helou ; 45273695 ; AB- ; 1198743262 ; 4/4/2004 ; 0.5
-Nicanor ; Saga ; 44639784 ; B- ; 1196324748 ; 16/7/2003 ; 0.4
-Saul ; Lezama ; 50147896 ; 0- ; 1196574185 ; 13/12/1999 ; 1
-Martina ; Meyer ; 45217884 ; A- ; 1127896544 ; 2/9/2003 ; 0.1
-Mateo ; Piccolomini ; 45217896 ; AB- ; 2324589674 ; 19/9/2003 ; 0.8
+Nombre;Apellido;Sexo;DNI;Tipo;Sangre;Telefono;Fecha_nacimiento;Salud
+Alma ; Marquez ; m ; 45296117 ; AB+ ; 2324675707 ; 11/9/2003 ; 0.7
+Lorenzo ; Mazzante ; h ; 44958354 ; A- ; 1169874522 ; 22/8/2023 ; 1
+Paula ; Pecker ; m ; 45274188 ; B+ ; 5226987441 ; 16/4/2004 ; 0.2
+Agostina ; Nobo ; m ; 45285127 ; 0+ ; 2236874985 ; 20/5/2004 ; 0.9
+Valentina ; Mao ; m ; 44789632 ; A+ ; 2324698514 ; 7/6/2004 ; 0.3
+Guadalupe ; Helou ; m ; 45273695 ; AB- ; 1198743262 ; 4/4/2004 ; 0.5
+Nicanor ; Saga ; h ; 44639784 ; B- ; 1196324748 ; 16/7/2003 ; 0.4
+Saul ; Lezama ; h ; 50147896 ; 0- ; 1196574185 ; 13/12/1999 ; 1
+Martina ; Meyer ; m ; 45217884 ; A- ; 1127896544 ; 2/9/2003 ; 0.1
+Mateo ; Piccolomini ; h ; 45217896 ; AB- ; 2324589674 ; 19/9/2003 ; 0.8

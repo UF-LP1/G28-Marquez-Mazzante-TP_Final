@@ -26,10 +26,10 @@ ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPac
 	variablefile >> coma;
 
 	while (!variablefile.eof()) {
-		variablefile >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
-			>> fecha_nacimientoAux >> coma >> saludAux>>coma>>sexoAux;
+		variablefile >> nombreAux >> coma >> apellidoAux >> coma >> sexoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
+			>> fecha_nacimientoAux >> coma >> saludAux;
 
-		cPaciente *pacienteAux = new cPaciente(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux, sexoAux);
+		cPaciente* pacienteAux = new cPaciente(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux, sexoAux);
 
 		listaPacientes->push_back(pacienteAux);
 	}

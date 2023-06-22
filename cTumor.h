@@ -32,3 +32,5 @@ public:
 	string to_string();
 };
 
+string conv_tam(eTamanio tam);
+string conv_ubi(eUbicacion ubi);

@@ -10,12 +10,12 @@ cPaciente::cPaciente(string nombre, string apellido, string DNI, string tipo_san
 
 cPaciente::~cPaciente()
 {
-    for (cTumor* aux : this->lista_tumores)
-    {
-        if (aux != nullptr)
-            delete aux;
-    }
-    delete this->ficha_paciente;
+    //for (cTumor* aux : this->lista_tumores)
+    //{
+    //    if (aux != nullptr)
+    //        delete aux;
+    //}
+    //delete this->ficha_paciente;
 }
 
 const string cPaciente::get_DNI()

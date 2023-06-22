@@ -89,36 +89,36 @@ int main()
 	imprimir_lista(miCentro);
 
 	//~~~~~~~~~~~aca hacemos los deletes correspondientes~~~~~~~~~~~~~~~~~~~~~//
-	//for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
-	//{
-	//	if (miCentro.get_lista_dosimetristas()[i] != nullptr)
-	//	{
-	//		delete miCentro.get_lista_dosimetristas()[i];
-	//		miCentro.get_lista_dosimetristas()[i] = nullptr;
-	//	}
+	for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
+	{
+		if (miCentro.get_lista_dosimetristas()[i] != nullptr)
+		{
+			delete miCentro.get_lista_dosimetristas()[i];
+			miCentro.get_lista_dosimetristas()[i] = nullptr;
+		}
 
-	//}
-	//miCentro.get_lista_dosimetristas().clear();
+	}
+	miCentro.get_lista_dosimetristas().clear();
 
-	//for (int i = 0; i < miCentro.get_lista_oncologos().size(); i++)
-	//{
-	//	if (miCentro.get_lista_oncologos()[i] != nullptr)
-	//	{
-	//		delete miCentro.get_lista_oncologos()[i];
-	//		miCentro.get_lista_oncologos()[i] = nullptr;
-	//	}
-	//}
-	//miCentro.get_lista_oncologos().clear();
+	for (int i = 0; i < miCentro.get_lista_oncologos().size(); i++)
+	{
+		if (miCentro.get_lista_oncologos()[i] != nullptr)
+		{
+			delete miCentro.get_lista_oncologos()[i];
+			miCentro.get_lista_oncologos()[i] = nullptr;
+		}
+	}
+	miCentro.get_lista_oncologos().clear();
 
-	//for (cPaciente* aux : miCentro.get_lista_pacientes())
-	//{
-	//	if (aux != nullptr)
-	//	{
-	//		delete aux;
-	//		aux = nullptr;
-	//	}
-	//}
-	//miCentro.get_lista_pacientes().clear();
+	for (cPaciente* aux : miCentro.get_lista_pacientes())
+	{
+		if (aux != nullptr)
+		{
+			delete aux;
+			aux = nullptr;
+		}
+	}
+	miCentro.get_lista_pacientes().clear();
 
 	return 0;
 }
