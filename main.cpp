@@ -88,15 +88,18 @@ int main()
 
 	imprimir_lista(miCentro);
 
+	cTerapia* terapiaaux = new cBraquiterapia();
 	try {
-		cTerapia* terapiaaux = miCentro[0]->get_lista_tumores()[0]->get_tratamiento();
 		vector <cPaciente*> pac_con_tum_casi_sanos = buscar_pacientes_tum_5prc(miCentro);
 		vector <cPaciente*> pac_con_tum_y_ter = buscar_pacientes_ter_tum(terapiaaux, cabeza, miCentro);
 	}
-	catch (...)
+	catch (exception & exe)
 	{
-		cout << endl << "ocurrio alguna excepcion";
+		cout << endl << exe.what();
 	}
+	delete terapiaaux;
+
+
 
 
 	//~~~~~~~~~~~aca hacemos los deletes correspondientes~~~~~~~~~~~~~~~~~~~~~//
