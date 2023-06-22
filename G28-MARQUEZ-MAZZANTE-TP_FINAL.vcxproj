@@ -155,7 +155,6 @@
     <ClCompile Include="cRadSistemica.cpp" />
     <ClCompile Include="cTerapia.cpp" />
     <ClCompile Include="cTumor.cpp" />
-    <ClCompile Include="dudas.cpp" />
     <ClCompile Include="funciones.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
