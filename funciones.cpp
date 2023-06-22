@@ -8,7 +8,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPac
 	variablefile.open(nombrearchivo, ios::in);
 	if (!(variablefile.is_open()))
 	{
-		cout << "no se pudo abrir el archivo" << endl;	//aca se podria tirar una excepcion pero mucho trabajo hacerlo ahora
+		cout << "no se pudo abrir el archivo" << endl;	
 		return variablefile;
 	}
 
@@ -36,7 +36,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPac
 	return variablefile;
 }
 
-vector<cDosimetrista*> generar_dosimetristas()
+vector<cDosimetrista*> generar_dosimetristas()				// genero dosimetristas
 {
 	vector <cDosimetrista*> listita;
 	listita.push_back(new cDosimetrista("juan", "perez", "23145672"));
@@ -45,7 +45,7 @@ vector<cDosimetrista*> generar_dosimetristas()
 	return listita;
 }
 
-vector<cOncologo*> generar_oncologos()
+vector<cOncologo*> generar_oncologos()				//genero oncologos
 {
 	vector <cOncologo*> listita;
 	listita.push_back(new cOncologo("pedro", "argento", "23423564"));
@@ -54,7 +54,7 @@ vector<cOncologo*> generar_oncologos()
 	return listita;
 }
 
-void asignar_oncologos(list<cPaciente*>& listaPacientes, vector<cOncologo*> lista_oncologos)
+void asignar_oncologos(list<cPaciente*>& listaPacientes, vector<cOncologo*> lista_oncologos)	//asigno un oncologo random de la lista a cada paciente
 {
 	for (cPaciente* aux : listaPacientes)
 	{
@@ -64,7 +64,7 @@ void asignar_oncologos(list<cPaciente*>& listaPacientes, vector<cOncologo*> list
 	}
 }
 
-void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrista*> lista_dosimetristas)
+void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrista*> lista_dosimetristas)		//asigno un dosimetrista random de la lista a cada paciente
 {
 	for (cPaciente* aux : listaPacientes)
 	{
@@ -162,9 +162,9 @@ void simular_sesion(cPaciente* pacientito) {
 	int i;
 	for (i = 0; i < pacientito->get_lista_tumores().size(); i++) 
 	{
-		pacientito->get_lista_tumores()[i]->set_radiacion_acum(pacientito->get_lista_tumores()[i]->get_tratamiento()->get_dosis_sesion());
+		pacientito->get_lista_tumores()[i]->set_radiacion_acum(pacientito->get_lista_tumores()[i]->get_tratamiento()->get_dosis_sesion()); //asigno la dosis por sesion de la terapia correspondiente al tumor
 		if (pacientito->get_lista_tumores()[i]->get_mejoria() < 100) {
-			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 8);
+			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 8);		//si la mejoria del tumor es menor a 100, entonces la aumento de a numeros random entre 0 y 7
 		}
 
 	}
@@ -175,18 +175,18 @@ void simular_sesion(cPaciente* pacientito) {
 	for (i = 0; i < tumorcito.size(); i++) {
 
 		if (dynamic_cast<cBraquiterapia*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6);
+			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6);		//calculo la cantidad de radiacion acumulada en el paciente
 		else if (dynamic_cast<cRadHazExterno*>(tumorcito[i]->get_tratamiento()) != nullptr)
 			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.3);
 		else if (dynamic_cast<cRadSistemica*>(tumorcito[i]->get_tratamiento()) != nullptr)
 			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.1);
 	}
 
-	pacientito->get_ficha()->set_radiacion_acum(radiacionpacientito);
-	pacientito->get_ficha()->set_fecha(time(0));
+	pacientito->get_ficha()->set_radiacion_acum(radiacionpacientito);	
+	pacientito->get_ficha()->set_fecha(time(0));			//actualizo la fecha asignandole la actual
 }
 
-bool radmaximatumor(vector<cTumor*> tumores) {
+bool radmaximatumor(vector<cTumor*> tumores) { //verifico si el tumor llego a su radiacion maxima
 	bool flag = false;
 	if (tumores.size() == 0) {
 		flag = true;
@@ -203,7 +203,7 @@ bool radmaximatumor(vector<cTumor*> tumores) {
 	return flag;
 }
 
-void imprimir_lista(cCentroRadioterapia miCentro)
+void imprimir_lista(cCentroRadioterapia miCentro) 
 {
 	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
 	{
@@ -217,7 +217,7 @@ void imprimir_lista(cCentroRadioterapia miCentro)
 	}
 }
 
-void reevaluar_paciente(cPaciente* pacientito)
+void reevaluar_paciente(cPaciente* pacientito) //implementada cuando el paciente vuelva pasado su tiempo en lista de espera para reanudar su tratamiento
 {
 	pacientito->get_ficha()->set_radiacion_acum(0);
 	for (int i = 0; i < pacientito->get_lista_tumores().size(); i++) {

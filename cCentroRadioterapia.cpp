@@ -33,7 +33,7 @@ cCentroRadioterapia::~cCentroRadioterapia()
 	//}
 }
 
-void cCentroRadioterapia::contactar_paciente(cPaciente *p)
+void cCentroRadioterapia::contactar_paciente(cPaciente *p) //contacto al paciente si luego de dos meses no regreso
 {
 	{
 		int respuesta;
