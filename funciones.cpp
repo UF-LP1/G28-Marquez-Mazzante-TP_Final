@@ -94,10 +94,17 @@ vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro)
 	vector<cPaciente*> pacientesEncontrados;
 	for (cPaciente* pacienteaux : micentro.lista_pacientes)
 	{
-		for (int i = 0; i < pacienteaux->get_lista_tumores().size(); i++)
+		if (!(pacienteaux->get_lista_tumores().empty()))
 		{
-			if ((float)pacienteaux->get_lista_tumores()[i]->get_radiacion_acum() >= 0, 95 * pacienteaux->get_lista_tumores()[i]->get_tratamiento()->get_dosis_totaltumor())
-				pacientesEncontrados.push_back(pacienteaux);
+			int i = 0;
+			do {
+				if ((float)pacienteaux->get_lista_tumores()[i]->get_radiacion_acum() >= 0, 95 * pacienteaux->get_lista_tumores()[i]->get_tratamiento()->get_dosis_totaltumor())
+				{
+					pacientesEncontrados.push_back(pacienteaux);
+					break;
+				}
+				i++;
+			} while (i < pacienteaux->get_lista_tumores().size());
 		}
 	}
 	return pacientesEncontrados;

@@ -27,7 +27,7 @@ public:
 	void set_radiacion_acum(unsigned int rad_acum);
 	void set_tratamiento(cTerapia* tratamiento);
 	float get_mejoria();
-	void set_mejoria(unsigned int m);
+	void set_mejoria(float m);
 
 	string to_string();
 };

@@ -63,7 +63,7 @@ float cTumor::get_mejoria()
 	return this->mejoria;
 }
 
-void cTumor::set_mejoria(unsigned int m)
+void cTumor::set_mejoria(float m)
 {
 	this->mejoria += m;
 }
