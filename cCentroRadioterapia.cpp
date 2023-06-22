@@ -16,7 +16,7 @@ cCentroRadioterapia::cCentroRadioterapia(string nombre_centro, string direccion,
 
 cCentroRadioterapia::~cCentroRadioterapia()
 {
-	/*for (cPaciente* auxpac : this->lista_pacientes)
+	for (cPaciente* auxpac : this->lista_pacientes)
 	{
 		if (auxpac != nullptr)
 			delete auxpac;
@@ -30,7 +30,7 @@ cCentroRadioterapia::~cCentroRadioterapia()
 	{
 		if (auxonc != nullptr)
 			delete auxonc;
-	}*/
+	}
 }
 
 void cCentroRadioterapia::contactar_paciente(cPaciente *p)
@@ -40,21 +40,16 @@ void cCentroRadioterapia::contactar_paciente(cPaciente *p)
 
 		//if (p->get_ficha()->get_fecha() > fechalimite) {
 		//}
-
 		int respuesta;
-
-		//srand(time(NULL));
 
 		respuesta = rand() % 2;
 
 		if (respuesta == 0) {				//no quiere volver
 			p->get_ficha()->set_estado(no_tratado);
 		}
-
 		else {
 			p->get_ficha()->set_estado(en_tratamiento); //quiere volver
 		}
-
 	}
 }
 
@@ -115,13 +110,6 @@ void cCentroRadioterapia::operator-(cPaciente * p)
 
 void cCentroRadioterapia::operator-(cDosimetrista* d)
 {
-	//int cont = 0;
-	//for (int i = 0; i < this->lista_dosimetristas.size(); i++)
-	//{
-	//	if (this->lista_dosimetristas[i] == d)
-	//		cont = i;
-	//}
-	//this->lista_dosimetristas.erase(this->lista_dosimetristas.begin() + cont);
 	bool found = false;
 	for (int i = 0; i < this->lista_dosimetristas.size() && !found; i++)
 	{
@@ -136,14 +124,6 @@ void cCentroRadioterapia::operator-(cDosimetrista* d)
 
 void cCentroRadioterapia::operator-(cOncologo* o)
 {
-	//int cont = 0;
-	//for (int i = 0; i < this->lista_oncologos.size(); i++)
-	//{
-	//	if (this->lista_oncologos[i] == o)
-	//		cont = i;
-	//}
-	//this->lista_oncologos.erase(this->lista_oncologos.begin() + cont);
-
 	bool found = false;
 	for (int i = 0; i < this->lista_oncologos.size() && !found; i++)
 	{

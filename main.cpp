@@ -19,14 +19,14 @@ int main()
 	miCentro - (miCentro.get_lista_oncologos()[0]);
 
 	try {
-		//miCentro - (miCentro[5]);
+		miCentro - (miCentro[5]);
 	}
 	catch (exception* exe)
 	{
 		cout << exe->what() << endl;
 	}
 
-//	srand(time(NULL));
+	srand(time(NULL));
 
 	asignar_oncologos(listaPacientes, miCentro.get_lista_oncologos());
 	asignar_dosimetristas(listaPacientes, miCentro.get_lista_dosimetristas());
@@ -70,10 +70,6 @@ int main()
 			}
 		}
 	}
-	//for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
-	//{
-	//	cout << endl << *miCentro[i] << endl;
-	//}
 	
 	try {
 		bool arg1 = (*miCentro[1] == "34169700");	//hago sobrecarga para ver si el paciente 2 esta atendido por el oncologo con DNI 34169700
@@ -90,49 +86,39 @@ int main()
 
 	simular_hospital(miCentro);
 
-	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
-	{
-		try {
-			cout << endl << *miCentro[i] << endl;
-		}
-		catch (exception* exe)
-		{
-			cout << exe->what() << endl;
-		}
-	}
-
+	imprimir_lista(miCentro);
 
 	//~~~~~~~~~~~aca hacemos los deletes correspondientes~~~~~~~~~~~~~~~~~~~~~//
-	for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
-	{
-		if (miCentro.get_lista_dosimetristas()[i] != nullptr)
-		{
-			delete miCentro.get_lista_dosimetristas()[i];
-			miCentro.get_lista_dosimetristas()[i] = nullptr;
-		}
+	//for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)
+	//{
+	//	if (miCentro.get_lista_dosimetristas()[i] != nullptr)
+	//	{
+	//		delete miCentro.get_lista_dosimetristas()[i];
+	//		miCentro.get_lista_dosimetristas()[i] = nullptr;
+	//	}
 
-	}
-	miCentro.get_lista_dosimetristas().clear();
+	//}
+	//miCentro.get_lista_dosimetristas().clear();
 
-	for (int i = 0; i < miCentro.get_lista_oncologos().size(); i++)
-	{
-		if (miCentro.get_lista_oncologos()[i] != nullptr)
-		{
-			delete miCentro.get_lista_oncologos()[i];
-			miCentro.get_lista_oncologos()[i] = nullptr;
-		}
-	}
-	miCentro.get_lista_oncologos().clear();
+	//for (int i = 0; i < miCentro.get_lista_oncologos().size(); i++)
+	//{
+	//	if (miCentro.get_lista_oncologos()[i] != nullptr)
+	//	{
+	//		delete miCentro.get_lista_oncologos()[i];
+	//		miCentro.get_lista_oncologos()[i] = nullptr;
+	//	}
+	//}
+	//miCentro.get_lista_oncologos().clear();
 
-	for (cPaciente* aux : miCentro.get_lista_pacientes())
-	{
-		if (aux != nullptr)
-		{
-			delete aux;
-			aux = nullptr;
-		}
-	}
-	miCentro.get_lista_pacientes().clear();
+	//for (cPaciente* aux : miCentro.get_lista_pacientes())
+	//{
+	//	if (aux != nullptr)
+	//	{
+	//		delete aux;
+	//		aux = nullptr;
+	//	}
+	//}
+	//miCentro.get_lista_pacientes().clear();
 
 	return 0;
 }

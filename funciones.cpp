@@ -135,7 +135,7 @@ void simular_sesion(cPaciente* pacientito) {
 	{
 		pacientito->get_lista_tumores()[i]->set_radiacion_acum(pacientito->get_lista_tumores()[i]->get_tratamiento()->get_dosis_sesion());
 		if (pacientito->get_lista_tumores()[i]->get_mejoria() < 100) {
-			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 6);
+			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 8);
 		}
 
 	}
@@ -172,6 +172,20 @@ bool radmaximatumor(vector<cTumor*> tumores) {
 
 	}
 	return flag;
+}
+
+void imprimir_lista(cCentroRadioterapia miCentro)
+{
+	for (int i = 0; i < miCentro.get_lista_pacientes().size(); i++)
+	{
+		try {
+			cout << endl << *miCentro[i] << endl;
+		}
+		catch (exception* exe)
+		{
+			cout << exe->what() << endl;
+		}
+	}
 }
 
 /*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
