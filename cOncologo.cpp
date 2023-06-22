@@ -132,8 +132,17 @@ void cOncologo::diagnosticar(cPaciente* p)
 	while(i < numero_random)
 	{
 		int tam_aux = rand() % 3;
-		int ubi_aux = rand() % 9;
-		
+		int ubi_aux = 0;
+		if (p->get_sexo() == 'm') {
+			do {
+				ubi_aux = rand() % 9;
+			} while (ubi_aux == 6);			//una mujer no tiene cancer de prostata
+		}
+		if (p->get_sexo() == 'h') {
+			do {
+				ubi_aux = rand() % 9;		//un hombre no tiene cancer de utero
+			} while (ubi_aux == 3);
+		}
 		tamanio_aux = convertirTam(tam_aux);
 		ubicacion_aux = convertirUbi(ubi_aux);
 

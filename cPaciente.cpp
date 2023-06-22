@@ -1,10 +1,11 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud)
+cPaciente::cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud, char sexo)
     :nombre(nombre), apellido(apellido), DNI(DNI), fecha_nacimiento(fecha_nacimiento), tipo_sangre(tipo_sangre)
 {
     this->tel_contacto = tel_contacto;
     this->salud = salud;
+    this->sexo = sexo;
 }
 
 cPaciente::~cPaciente()
@@ -72,6 +73,11 @@ void cPaciente::set_frec_semanal(unsigned int f)
 {
    this-> frecuenciaSemanal = f;
    return;
+}
+
+char cPaciente::get_sexo()
+{
+    return this->sexo;
 }
 
 void cPaciente::operator+(cTumor* tumorcito)

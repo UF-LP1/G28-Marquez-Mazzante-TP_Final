@@ -23,9 +23,10 @@ private:
 	cFicha* ficha_paciente;
 	unsigned int frecuenciaSemanal;
 	unsigned int dosis_max;
+	char sexo;
 
 public:
-	cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud);
+	cPaciente(string nombre, string apellido, string DNI, string tipo_sangre, string tel_contacto, string fecha_nacimiento, float salud, char sexo);
 	~cPaciente();
 
 	const string get_DNI();
@@ -40,6 +41,7 @@ public:
 	void set_salud(float s);
 	void set_frec_semanal(unsigned int f);
 	//bool set_concurrir(bool c);
+	char get_sexo();
 
 	void operator+(cTumor* tumorcito);
 	void operator-(cTumor* tumorcito);

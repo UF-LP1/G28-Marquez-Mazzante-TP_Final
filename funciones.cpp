@@ -19,6 +19,7 @@ ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPac
 	string tel_contactoAux;
 	string fecha_nacimientoAux;
 	float saludAux;
+	char sexoAux;
 	string coma;
 
 	int i = 0;
@@ -26,9 +27,9 @@ ifstream leer_archivo_pacientes(string nombrearchivo, list<cPaciente*> *listaPac
 
 	while (!variablefile.eof()) {
 		variablefile >> nombreAux >> coma >> apellidoAux >> coma >> DNIAux >> coma >> tipo_sangreAux >> coma >> tel_contactoAux >> coma
-			>> fecha_nacimientoAux >> coma >> saludAux;
+			>> fecha_nacimientoAux >> coma >> saludAux>>coma>>sexoAux;
 
-		cPaciente *pacienteAux = new cPaciente(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux);
+		cPaciente *pacienteAux = new cPaciente(nombreAux, apellidoAux, DNIAux, tipo_sangreAux, tel_contactoAux, fecha_nacimientoAux, saludAux, sexoAux);
 
 		listaPacientes->push_back(pacienteAux);
 	}
@@ -186,6 +187,16 @@ void imprimir_lista(cCentroRadioterapia miCentro)
 			cout << exe->what() << endl;
 		}
 	}
+}
+
+void reevaluar_paciente(cPaciente* pacientito)
+{
+	pacientito->get_ficha()->set_radiacion_acum(0);
+	for (int i = 0; i < pacientito->get_lista_tumores().size(); i++) {
+		pacientito->get_lista_tumores()[i]->set_radiacion_acum(0);
+	}
+	pacientito->get_ficha()->set_estado(en_tratamiento);
+
 }
 
 /*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
