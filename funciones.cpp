@@ -135,7 +135,7 @@ void simular_sesion(cPaciente* pacientito) {
 	{
 		pacientito->get_lista_tumores()[i]->set_radiacion_acum(pacientito->get_lista_tumores()[i]->get_tratamiento()->get_dosis_sesion());
 		if (pacientito->get_lista_tumores()[i]->get_mejoria() < 100) {
-			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 11);
+			pacientito->get_lista_tumores()[i]->set_mejoria(rand() % 6);
 		}
 
 	}

@@ -101,6 +101,16 @@ void cOncologo::evaluar_paciente(cPaciente* p){
 	}
 	else {
 		p->get_ficha()->set_estado(lista_de_espera);
+		for (int i = 0; i < p->get_lista_tumores().size(); i++) {
+			if (p->get_lista_tumores()[i]->get_mejoria() > 50 && p->get_lista_tumores()[i]->get_mejoria() < 100) {
+				{
+					if (p->get_lista_tumores()[i]->get_tamanio() == grande) {
+						p->get_lista_tumores()[i]->set_tamanio(mediano);
+					}
+					else if (p->get_lista_tumores()[i]->get_tamanio() == mediano) p->get_lista_tumores()[i]->set_tamanio(pequenio);
+				}
+			}
+		}
 	}
 
 	return;
