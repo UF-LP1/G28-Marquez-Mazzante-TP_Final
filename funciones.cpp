@@ -73,19 +73,20 @@ void asignar_dosimetristas(list<cPaciente*>& listaPacientes, vector<cDosimetrist
 	}
 }
 
-vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, cTumor* tumor, cCentroRadioterapia &micentro)
+vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, eUbicacion ubitum, cCentroRadioterapia &micentro)
 {
 	vector<cPaciente*> pacientesEncontrados;
-	for (cPaciente* pacienteaux : micentro.lista_pacientes) {
+	for (cPaciente* pacienteaux : micentro.get_lista_pacientes()) {
 
-		for(int i=0;i<pacienteaux->get_lista_tumores().size();i++)
-
-			if (pacienteaux->get_lista_tumores()[i] == tumor && pacienteaux->get_lista_tumores()[i]->get_tratamiento() == terapia) {
+		for (int i = 0; i < pacienteaux->get_lista_tumores().size(); i++)
+		{
+			if (pacienteaux->get_lista_tumores()[i]->get_ubicacion() == ubitum && pacienteaux->get_lista_tumores()[i]->get_tratamiento() == terapia) {
 				pacientesEncontrados.push_back(pacienteaux);
 			}
+		}
 	}
-	
-	if (pacientesEncontrados.size() == 0) throw exception("no se encontro ningun paciente con esas caracteristicas");
+	if (pacientesEncontrados.size() == 0) 
+		throw exception("no se encontro ningun paciente con esas caracteristicas");
 	return pacientesEncontrados;
 }
 
@@ -107,6 +108,8 @@ vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro)
 			} while (i < pacienteaux->get_lista_tumores().size());
 		}
 	}
+	if (pacientesEncontrados.size() == 0)
+		throw exception("no se encontro ningun paciente con esas caracteristicas");
 	return pacientesEncontrados;
 }
 
@@ -133,6 +136,10 @@ void simular_hospital(cCentroRadioterapia & miCentro)
 					miCentro.lista_oncologos[p]->evaluar_paciente(miCentro[i]);		//evaluo al paciente
 			}
 		}	
+		//5259492: segundos en 2 meses
+
+		if (time(0) - miCentro[i]->get_ficha()->get_fecha() >= 5259492 && miCentro[i]->get_ficha()->get_estado() == en_tratamiento)	//si hace mas de dos meses q no viene lo llamo
+			miCentro.contactar_paciente(miCentro[i]);
 	}
 }
 
@@ -154,11 +161,11 @@ void simular_sesion(cPaciente* pacientito) {
 	for (i = 0; i < tumorcito.size(); i++) {
 
 		if (dynamic_cast<cBraquiterapia*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += (float)tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6;
+			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.6);
 		else if (dynamic_cast<cRadHazExterno*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += (float)tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.3;
+			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.3);
 		else if (dynamic_cast<cRadSistemica*>(tumorcito[i]->get_tratamiento()) != nullptr)
-			radiacionpacientito += (float)tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.1;
+			radiacionpacientito += (float) (tumorcito[i]->get_tratamiento()->get_dosis_sesion() * 0.1);
 	}
 
 	pacientito->get_ficha()->set_radiacion_acum(radiacionpacientito);
@@ -205,74 +212,3 @@ void reevaluar_paciente(cPaciente* pacientito)
 	pacientito->get_ficha()->set_estado(en_tratamiento);
 
 }
-
-/*ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores)
-{
-	ifstream variablefile;
-	variablefile.open(nombrearchivo, ios::in);
-	if (!(variablefile.is_open()))
-	{
-		cout << "no se pudo abrir el archivo" << endl;	//aca se podria tirar una excepcion pero mucho trabajo hacerlo ahora
-		exit;
-	}
-
-	string tamAux1;
-	string ubiAux2;
-	unsigned int radiacion_acumAux;
-	string coma;
-
-	eTamanio tamanioAux;
-	eUbicacion ubicacionAux;
-
-	int i = 0;
-	variablefile >> coma;
-
-	while (!variablefile.eof()) {
-
-		variablefile >> tamAux1 >> coma >> ubiAux2 >> coma >> radiacion_acumAux;	//no me deja leer el tamanio ni la ubicacion como enums x eso hago todo este quilombo
-
-		tamanioAux = convertir_tamanio(tamAux1);			// si no hago esto no le gusta
-		ubicacionAux = convertir_ubicacion(ubiAux2);		//si no hago esto no le gusta
-
-		cTumor* tumorAux = new cTumor(tamanioAux, ubicacionAux, radiacion_acumAux, nullptr);
-
-		listaTumores->push_back(tumorAux);
-	}
-	return variablefile;
-
-}
-
-eTamanio convertir_tamanio(string tamAux)
-{
-	eTamanio tamanioAux;
-	if (tamAux == "pequenio")
-		tamanioAux = pequenio;
-	else if (tamAux == "mediano")
-		tamanioAux = mediano;
-	else
-		tamanioAux = grande;
-	return tamanioAux;
-}
-
-eUbicacion convertir_ubicacion(string ubiAux)
-{
-	eUbicacion ubicacionAux;
-	if (ubiAux == "cabeza")
-		ubicacionAux = cabeza;
-	else if (ubiAux == "pulmon")
-		ubicacionAux = pulmon;
-	else if (ubiAux == "cuello")
-		ubicacionAux = cuello;
-	else if (ubiAux == "utero")
-		ubicacionAux = utero;
-	else if (ubiAux == "ojo")
-		ubicacionAux = ojo;
-	else if (ubiAux == "tiroides")
-		ubicacionAux = tiroides;
-	else if (ubiAux == "prostata")
-		ubicacionAux = prostata;
-	else
-		ubicacionAux = intestino;
-	return ubicacionAux;
-}
-*/

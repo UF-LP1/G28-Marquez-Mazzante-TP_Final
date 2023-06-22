@@ -88,7 +88,16 @@ int main()
 
 	imprimir_lista(miCentro);
 
-	vector <cPaciente*> pac_con_tum_casi_sanos = buscar_pacientes_tum_5prc(miCentro);
+	try {
+		cTerapia* terapiaaux = miCentro[0]->get_lista_tumores()[0]->get_tratamiento();
+		vector <cPaciente*> pac_con_tum_casi_sanos = buscar_pacientes_tum_5prc(miCentro);
+		vector <cPaciente*> pac_con_tum_y_ter = buscar_pacientes_ter_tum(terapiaaux, cabeza, miCentro);
+	}
+	catch (...)
+	{
+		cout << endl << "ocurrio alguna excepcion";
+	}
+
 
 	//~~~~~~~~~~~aca hacemos los deletes correspondientes~~~~~~~~~~~~~~~~~~~~~//
 	for (int i = 0; i < miCentro.get_lista_dosimetristas().size(); i++)

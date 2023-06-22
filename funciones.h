@@ -9,7 +9,7 @@ vector <cDosimetrista*> generar_dosimetristas();
 vector <cOncologo*> generar_oncologos();
 void asignar_oncologos(list<cPaciente*>&listaPacientes, vector<cOncologo*>lista_oncologos);
 void asignar_dosimetristas(list<cPaciente*>&listaPacientes, vector<cDosimetrista*>lista_dosimetristas);
-vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, cTumor *tumor, cCentroRadioterapia &micentro);
+vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, eUbicacion ubitum, cCentroRadioterapia &micentro);
 vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro);
 void simular_hospital(cCentroRadioterapia & miCentro);
 void simular_sesion(cPaciente* pacientito);

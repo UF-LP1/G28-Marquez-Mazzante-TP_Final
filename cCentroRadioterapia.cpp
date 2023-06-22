@@ -36,10 +36,6 @@ cCentroRadioterapia::~cCentroRadioterapia()
 void cCentroRadioterapia::contactar_paciente(cPaciente *p)
 {
 	{
-		//time_t fechalimite = time(0) + 5259492;  //la fecha limite seria dos meses a partir de hoy.
-
-		//if (p->get_ficha()->get_fecha() > fechalimite) {
-		//}
 		int respuesta;
 
 		respuesta = rand() % 2;
