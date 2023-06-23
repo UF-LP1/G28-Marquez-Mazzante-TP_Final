@@ -77,7 +77,12 @@ void cFicha::set_radiacion_acum(float rad_acum)
 string cFicha::to_string()
 {
 	stringstream salida;
-	salida << "FECHA: " << convertir_fecha(this->fecha) << " - DNI_ONCOLOGO: " << this->DNI_oncologo << " - DNI_ DOSIMETRISTA: " << this->DNI_dosimetrista << " - ESTADO: " << this->estado;
+	string fechitaaux;
+	if (convertir_fecha(this->fecha) == "31/12/1969")
+		fechitaaux = "no se atendio";
+	else
+		fechitaaux = convertir_fecha(this->fecha);
+	salida << "FECHA: " << fechitaaux << " - DNI_ONCOLOGO: " << this->DNI_oncologo << " - DNI_ DOSIMETRISTA: " << this->DNI_dosimetrista << " - ESTADO: " << this->estado;
 	return salida.str();
 }
 
@@ -87,7 +92,7 @@ ostream& operator<<(ostream& out, cFicha& miFicha)
 	return out;
 }
 
-string convertir_fecha(time_t tiempo) //convierto la fecha de formato time_t a int.
+string convertir_fecha(time_t tiempo) //convierto la fecha de formato time_t a string
 {
 	tm tiempito;
 	localtime_s(&tiempito, &tiempo);

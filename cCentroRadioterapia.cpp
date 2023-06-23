@@ -16,21 +16,6 @@ cCentroRadioterapia::cCentroRadioterapia(string nombre_centro, string direccion,
 
 cCentroRadioterapia::~cCentroRadioterapia()
 {
-	//for (cPaciente* auxpac : this->lista_pacientes)
-	//{
-	//	if (auxpac != nullptr)
-	//		delete auxpac;
-	//}
-	//for (cDosimetrista* auxdos : this->lista_dosimetristas)
-	//{
-	//	if (auxdos != nullptr)
-	//		delete auxdos;
-	//}
-	//for (cOncologo* auxonc : this->lista_oncologos)
-	//{
-	//	if (auxonc != nullptr)
-	//		delete auxonc;
-	//}
 }
 
 void cCentroRadioterapia::contactar_paciente(cPaciente *p) //contacto al paciente si luego de dos meses no regreso
@@ -44,7 +29,11 @@ void cCentroRadioterapia::contactar_paciente(cPaciente *p) //contacto al pacient
 			p->get_ficha()->set_estado(no_tratado);
 		}
 		else {
-			p->get_ficha()->set_estado(en_tratamiento); //quiere volver
+			for (int i = 0; i < this->lista_oncologos.size(); i++)
+			{
+				if (this->lista_oncologos[i]->get_DNI() == p->get_ficha()->get_DNI_oncologo())
+					this->lista_oncologos[i]->reevaluar_paciente(p);
+			}
 		}
 	}
 }

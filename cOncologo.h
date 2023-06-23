@@ -18,6 +18,7 @@ public:
 	void calcular_dosis_sesion(cPaciente* p);
 	void calcular_frec_semanal(cPaciente* p);
 	void evaluar_paciente(cPaciente* p);
+	void reevaluar_paciente(cPaciente* pacientito);
 	void diagnosticar(cPaciente* p);
 	bool operator==(cPaciente& p);
 };

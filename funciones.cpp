@@ -152,7 +152,8 @@ void simular_hospital(cCentroRadioterapia & miCentro)
 		}	
 		//5259492: segundos en 2 meses
 
-		if (time(0) - miCentro[i]->get_ficha()->get_fecha() >= 5259492 && miCentro[i]->get_ficha()->get_estado() == en_tratamiento)	//si hace mas de dos meses q no viene lo llamo
+		if (time(0) - miCentro[i]->get_ficha()->get_fecha() >= 5259492 && 
+			(miCentro[i]->get_ficha()->get_estado() == en_tratamiento || miCentro[i]->get_ficha()->get_estado() == lista_de_espera))	//si hace mas de dos meses q no viene lo llamo
 			miCentro.contactar_paciente(miCentro[i]);
 	}
 }
@@ -217,12 +218,3 @@ void imprimir_lista(cCentroRadioterapia miCentro)
 	}
 }
 
-void reevaluar_paciente(cPaciente* pacientito) //implementada cuando el paciente vuelva pasado su tiempo en lista de espera para reanudar su tratamiento
-{
-	pacientito->get_ficha()->set_radiacion_acum(0);
-	for (int i = 0; i < pacientito->get_lista_tumores().size(); i++) {
-		pacientito->get_lista_tumores()[i]->set_radiacion_acum(0);
-	}
-	pacientito->get_ficha()->set_estado(en_tratamiento);
-
-}

@@ -116,6 +116,16 @@ void cOncologo::evaluar_paciente(cPaciente* p){			//evalua al paciente despues d
 	return;
 }
 
+void cOncologo::reevaluar_paciente(cPaciente* pacientito)//implementada cuando el paciente vuelva pasado su tiempo en lista de espera para reanudar su tratamiento
+
+{
+	pacientito->get_ficha()->set_radiacion_acum(0);
+	for (int i = 0; i < pacientito->get_lista_tumores().size(); i++) {
+		pacientito->get_lista_tumores()[i]->set_radiacion_acum(0);
+	}
+	pacientito->get_ficha()->set_estado(en_tratamiento);
+}
+
 void cOncologo::diagnosticar(cPaciente* p)
 {
 	vector <cTumor*> lista_aux;

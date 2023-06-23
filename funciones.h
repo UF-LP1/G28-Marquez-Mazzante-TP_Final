@@ -15,7 +15,7 @@ void simular_hospital(cCentroRadioterapia & miCentro);
 void simular_sesion(cPaciente* pacientito);
 bool radmaximatumor(vector<cTumor*> tumores);
 void imprimir_lista(cCentroRadioterapia miCentro);
-void reevaluar_paciente(cPaciente* pacientito);
+
 
 //ifstream leer_archivo_tumores(string nombrearchivo, vector<cTumor*>* listaTumores);
 //eTamanio convertir_tamanio(string tamAux);
