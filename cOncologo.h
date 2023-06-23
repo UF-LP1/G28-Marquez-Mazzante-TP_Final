@@ -6,14 +6,14 @@ using namespace std;
 class cOncologo
 {
 private:
-	string nombre;
-	string apellido;
-	string DNI;
+	const string nombre;
+	const string apellido;
+	const string DNI;
 
 public:
 	cOncologo(string nombre, string apellido, string DNI);
 	~cOncologo();
-	string get_DNI();
+	const string get_DNI() const;
 
 	void calcular_dosis_sesion(cPaciente* p);
 	void calcular_frec_semanal(cPaciente* p);

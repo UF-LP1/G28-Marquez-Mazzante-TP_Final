@@ -35,13 +35,13 @@ public:
 	vector<cTumor*> get_lista_tumores();
 	cFicha* get_ficha();
 	unsigned int get_dosis_max();
+	char get_sexo();
 	void set_lista_tumores(vector<cTumor*> l);
 	void set_dosis_max(unsigned int dosis_max);
 	void set_ficha(cFicha* fichita);
 	void set_salud(float s);
 	void set_frec_semanal(unsigned int f);
-	//bool set_concurrir(bool c);
-	char get_sexo();
+
 
 	void operator+(cTumor* tumorcito);
 	void operator-(cTumor* tumorcito);

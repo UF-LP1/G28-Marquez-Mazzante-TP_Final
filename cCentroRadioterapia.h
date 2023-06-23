@@ -29,7 +29,7 @@ public:
 	void operator - (cDosimetrista* d);
 	void operator - (cOncologo* o);
 
-	friend vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, cTumor *tumor, cCentroRadioterapia &micentro);
+	friend vector<cPaciente*> buscar_pacientes_ter_tum(cTerapia* terapia, eUbicacion tum, cCentroRadioterapia &micentro);
 	friend vector<cPaciente*> buscar_pacientes_tum_5prc(cCentroRadioterapia& micentro);
 	friend void simular_hospital(cCentroRadioterapia& miCentro);
 };

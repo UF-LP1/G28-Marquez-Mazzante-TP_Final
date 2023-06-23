@@ -16,7 +16,7 @@ private:
 public:
 	cDosimetrista(string nombre, string apellido, string DNI);
 	~cDosimetrista();
-	const string get_DNI();
+	const string get_DNI() const;
 
 	void calcular_dosis_tot(cPaciente* p);
 	void elegir_tipo_terapia(cPaciente* p);

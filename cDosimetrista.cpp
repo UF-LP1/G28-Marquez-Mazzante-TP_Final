@@ -9,7 +9,7 @@ cDosimetrista::~cDosimetrista()
 {
 }
 
-const string cDosimetrista::get_DNI()
+const string cDosimetrista::get_DNI() const
 {
 	return this->DNI;
 }
